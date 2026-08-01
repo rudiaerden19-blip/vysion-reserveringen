@@ -23,6 +23,10 @@ const FAQ = [
     q: 'Moet ik per reservering een procent afgeven aan TableVysion?',
     a: 'Neen. Wij werken niet met transactiekosten of dergelijke.',
   },
+  {
+    q: 'Kan ik werken met betaalprovider-integraties?',
+    a: 'Ja hoor. Wij werken met alle betaalproviders op de markt.',
+  },
 ] as const
 
 export default function FaqSection() {
