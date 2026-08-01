@@ -2,41 +2,44 @@
 
 import { useCallback, useEffect, useState } from 'react'
 
+/** v=3: echte PNG’s, geen JPEG; nieuwe-reservatie in hoge kwaliteit uit Cursor-export. */
+const ASSET_V = '3'
+
 export const platformScreenshots = [
   {
-    src: '/images/platform/plattegrond.png',
+    src: `/images/platform/plattegrond.png?v=${ASSET_V}`,
     alt: 'TableVysion tafelplattegrond met live bezetting',
     label: 'Plattegrond',
-    width: 1024,
-    height: 392,
+    width: 2048,
+    height: 784,
   },
   {
-    src: '/images/platform/nieuwe-reservatie.png',
+    src: `/images/platform/nieuwe-reservatie.png?v=${ASSET_V}`,
     alt: 'Nieuwe reservatie aanmaken in TableVysion',
     label: 'Nieuwe reservatie',
-    width: 1024,
-    height: 392,
+    width: 893,
+    height: 904,
   },
   {
-    src: '/images/platform/tafels.png',
+    src: `/images/platform/tafels.png?v=${ASSET_V}`,
     alt: 'Tafeloverzicht en tijdsloten in TableVysion',
     label: 'Tafels & planning',
-    width: 1024,
-    height: 390,
+    width: 2048,
+    height: 780,
   },
   {
-    src: '/images/platform/rapporten.png',
+    src: `/images/platform/rapporten.png?v=${ASSET_V}`,
     alt: 'Rapporten en walk-in in TableVysion',
     label: 'Rapporten',
-    width: 1024,
-    height: 391,
+    width: 2048,
+    height: 782,
   },
   {
-    src: '/images/platform/contacten.png',
+    src: `/images/platform/contacten.png?v=${ASSET_V}`,
     alt: 'Gastencontacten en VIP in TableVysion',
     label: 'Contacten',
-    width: 1024,
-    height: 390,
+    width: 2048,
+    height: 780,
   },
 ] as const
 
@@ -96,6 +99,8 @@ export default function PlatformShowcaseCarousel() {
     }
   }, [lightboxOpen, goPrev, goNext])
 
+  const rawSrc = current.src.split('?')[0]
+
   return (
     <>
       <div className="mx-auto flex max-w-6xl items-center gap-3 sm:gap-5">
@@ -108,8 +113,8 @@ export default function PlatformShowcaseCarousel() {
             className="group block w-full cursor-zoom-in text-left"
             aria-label={`${current.label} vergroten`}
           >
-            <div className="overflow-hidden rounded-2xl border-2 border-gray-300 bg-white shadow-home-card ring-1 ring-black/5">
-              <div className="relative w-full bg-gray-50" style={{ aspectRatio: `${current.width} / ${current.height}` }}>
+            <div className="overflow-hidden rounded-2xl border-2 border-gray-300 bg-white shadow-home-card">
+              <div className="flex max-h-[min(70vh,720px)] items-center justify-center bg-gray-50 p-2 sm:p-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   key={current.src}
@@ -117,7 +122,7 @@ export default function PlatformShowcaseCarousel() {
                   alt={current.alt}
                   width={current.width}
                   height={current.height}
-                  className="h-full w-full object-contain object-top"
+                  className="max-h-[min(68vh,700px)] w-auto max-w-full object-contain"
                   decoding="async"
                   draggable={false}
                 />
@@ -144,7 +149,7 @@ export default function PlatformShowcaseCarousel() {
           onClick={() => setLightboxOpen(false)}
         >
           <div
-            className="mb-2 flex shrink-0 items-center justify-between gap-3 px-1 text-white sm:mb-3"
+            className="mb-2 flex shrink-0 flex-wrap items-center justify-between gap-2 px-1 text-white sm:mb-3"
             onClick={(e) => e.stopPropagation()}
           >
             <p className="truncate text-sm font-semibold sm:text-base">
@@ -153,17 +158,27 @@ export default function PlatformShowcaseCarousel() {
                 ({index + 1}/{total})
               </span>
             </p>
-            <button
-              type="button"
-              onClick={() => setLightboxOpen(false)}
-              className="inline-flex h-10 shrink-0 items-center justify-center rounded-full bg-white/10 px-4 text-sm font-semibold transition hover:bg-white/20"
-            >
-              Sluiten
-            </button>
+            <div className="flex shrink-0 items-center gap-2">
+              <a
+                href={rawSrc}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-10 items-center justify-center rounded-full bg-white/10 px-4 text-sm font-semibold transition hover:bg-white/20"
+              >
+                Origineel openen
+              </a>
+              <button
+                type="button"
+                onClick={() => setLightboxOpen(false)}
+                className="inline-flex h-10 items-center justify-center rounded-full bg-white/10 px-4 text-sm font-semibold transition hover:bg-white/20"
+              >
+                Sluiten
+              </button>
+            </div>
           </div>
 
-          <div className="relative min-h-0 flex-1 w-full" onClick={(e) => e.stopPropagation()}>
-            <div className="absolute inset-0 flex items-center justify-center px-12 sm:px-16 md:px-20">
+          <div className="relative min-h-0 flex-1 w-full overflow-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="flex min-h-full min-w-full items-center justify-center px-12 py-2 sm:px-16 md:px-20">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 key={`lb-${current.src}`}
@@ -171,17 +186,21 @@ export default function PlatformShowcaseCarousel() {
                 alt={current.alt}
                 width={current.width}
                 height={current.height}
-                className="h-auto w-auto max-h-[min(calc(100dvh-4.5rem),92vh)] max-w-[min(calc(100vw-7rem),1024px)] object-contain object-center select-none"
+                className="h-auto w-auto max-w-none select-none"
+                style={{
+                  maxHeight: 'calc(100dvh - 5rem)',
+                  maxWidth: 'min(96vw, 100%)',
+                }}
                 decoding="sync"
                 draggable={false}
               />
             </div>
-            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-1 sm:pl-2">
+            <div className="pointer-events-none fixed inset-y-0 left-0 flex items-center pl-1 sm:pl-2">
               <div className="pointer-events-auto">
                 <NavArrow direction="prev" onClick={goPrev} label="Vorige afbeelding" />
               </div>
             </div>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-1 sm:pr-2">
+            <div className="pointer-events-none fixed inset-y-0 right-0 flex items-center pr-1 sm:pr-2">
               <div className="pointer-events-auto">
                 <NavArrow direction="next" onClick={goNext} label="Volgende afbeelding" />
               </div>
