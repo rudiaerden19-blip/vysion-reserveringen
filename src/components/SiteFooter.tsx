@@ -7,17 +7,17 @@ export default function SiteFooter() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-white/10 bg-dark py-16 text-white" role="contentinfo">
+    <footer className="border-t border-white/10 bg-dark py-8 text-white sm:py-10" role="contentinfo">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 grid gap-12 md:grid-cols-3">
+        <div className="mb-6 grid gap-8 md:grid-cols-3 md:gap-6">
           <div>
-            <p className="text-2xl font-bold text-accent">{SITE_NAME}</p>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-gray-400 sm:text-base">
+            <p className="text-xl font-bold text-accent">{SITE_NAME}</p>
+            <p className="mt-2 max-w-md text-sm leading-snug text-gray-400">
               {SITE_NAME} is een onderdeel van de Vysion Group International. Cloudsoftware wereldwijd in
               meerdere talen. Vysion Group bouwt kassa&apos;s voor iedere sector: van kapper tot slager,
               café&apos;s, bistro, kledingwinkel, retail en nog veel meer.
             </p>
-            <address className="mt-6 not-italic text-sm leading-relaxed text-gray-400">
+            <address className="mt-4 not-italic text-sm leading-snug text-gray-400">
               <span className="font-semibold text-white">Adres:</span>
               <br />
               Vysion Group International
@@ -28,7 +28,7 @@ export default function SiteFooter() {
               <br />
               BTW BE 1003.226.953
             </address>
-            <div className="mt-6 flex flex-col gap-2 text-sm">
+            <div className="mt-4 flex flex-col gap-1.5 text-sm">
               <a
                 href="https://www.vysionapps.io"
                 className="font-medium text-accent hover:underline"
@@ -52,8 +52,8 @@ export default function SiteFooter() {
           </div>
 
           <nav aria-label="Product">
-            <p className="mb-4 font-semibold text-white">Product</p>
-            <ul className="space-y-3 text-sm">
+            <p className="mb-2 font-semibold text-white">Product</p>
+            <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/#functies" className={footerLinkClass}>
                   Functies &amp; platform
@@ -68,8 +68,8 @@ export default function SiteFooter() {
           </nav>
 
           <nav aria-label="Bedrijf">
-            <p className="mb-4 font-semibold text-white">Bedrijf</p>
-            <ul className="space-y-3 text-sm">
+            <p className="mb-2 font-semibold text-white">Bedrijf</p>
+            <ul className="space-y-2 text-sm">
               <li>
                 <a href={`${MAIN_PLATFORM_URL}/over-ons`} className={footerLinkClass}>
                   Over ons
