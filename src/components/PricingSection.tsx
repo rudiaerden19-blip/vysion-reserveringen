@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { MAIN_PLATFORM_URL, REGISTER_URL } from '@/lib/site'
+import { REGISTER_URL } from '@/lib/site'
 import { TABLEVYSION_MONTHLY, displayPrice } from '@/lib/pricing'
 
 const planFeatures = [
@@ -117,13 +117,6 @@ export default function PricingSection() {
             </div>
           </div>
         </div>
-
-        <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-gray-600">
-          Volledige kassa, online bestellen of hardware?{' '}
-          <a href={`${MAIN_PLATFORM_URL}/prijzen`} className="font-semibold text-accent hover:underline">
-            Bekijk alle Vysion-prijzen
-          </a>
-        </p>
       </div>
     </section>
   )
