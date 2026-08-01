@@ -141,17 +141,17 @@ export default function PlatformShowcaseSection() {
 
       {lightboxOpen && (
         <div
-          className="fixed inset-0 z-[100] flex flex-col bg-black/92 p-4 sm:p-6"
+          className="fixed inset-0 z-[100] flex flex-col bg-black/95 p-2 sm:p-3"
           role="dialog"
           aria-modal="true"
           aria-label={current.label}
           onClick={() => setLightboxOpen(false)}
         >
           <div
-            className="mb-3 flex shrink-0 items-center justify-between gap-4 text-white"
+            className="mb-2 flex shrink-0 items-center justify-between gap-3 px-1 text-white sm:mb-3"
             onClick={(e) => e.stopPropagation()}
           >
-            <p className="truncate text-base font-semibold sm:text-lg">
+            <p className="truncate text-sm font-semibold sm:text-base">
               {current.label}{' '}
               <span className="font-normal text-white/60">
                 ({index + 1}/{total})
@@ -160,29 +160,39 @@ export default function PlatformShowcaseSection() {
             <button
               type="button"
               onClick={() => setLightboxOpen(false)}
-              className="inline-flex h-11 min-w-11 items-center justify-center rounded-full bg-white/10 px-4 text-sm font-semibold transition hover:bg-white/20"
+              className="inline-flex h-10 shrink-0 items-center justify-center rounded-full bg-white/10 px-4 text-sm font-semibold transition hover:bg-white/20"
             >
               Sluiten
             </button>
           </div>
 
           <div
-            className="relative flex min-h-0 flex-1 items-center justify-center gap-2 sm:gap-4"
+            className="relative min-h-0 flex-1 w-full"
             onClick={(e) => e.stopPropagation()}
           >
-            <NavArrow direction="prev" onClick={goPrev} label="Vorige afbeelding" />
-            <div className="relative h-full max-h-[calc(100vh-8rem)] w-full max-w-6xl flex-1">
-              <Image
-                key={`lb-${current.src}`}
-                src={current.src}
-                alt={current.alt}
-                fill
-                className="object-contain object-center"
-                sizes="100vw"
-                priority
-              />
+            <div className="absolute inset-0 px-12 sm:px-16 md:px-20">
+              <div className="relative h-full w-full min-h-[calc(100dvh-4.5rem)] sm:min-h-[calc(100dvh-5rem)]">
+                <Image
+                  key={`lb-${current.src}`}
+                  src={current.src}
+                  alt={current.alt}
+                  fill
+                  className="object-contain object-center"
+                  sizes="100vw"
+                  priority
+                />
+              </div>
             </div>
-            <NavArrow direction="next" onClick={goNext} label="Volgende afbeelding" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-1 sm:pl-2">
+              <div className="pointer-events-auto">
+                <NavArrow direction="prev" onClick={goPrev} label="Vorige afbeelding" />
+              </div>
+            </div>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-1 sm:pr-2">
+              <div className="pointer-events-auto">
+                <NavArrow direction="next" onClick={goNext} label="Volgende afbeelding" />
+              </div>
+            </div>
           </div>
         </div>
       )}
