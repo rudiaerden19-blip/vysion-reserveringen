@@ -44,8 +44,6 @@ export default function LandingHero() {
             Bekijk functies
           </Link>
         </div>
-
-        <p className="mt-6 text-sm text-white/70">14 dagen gratis · alleen reserveringsmodules</p>
       </div>
     </section>
   )
