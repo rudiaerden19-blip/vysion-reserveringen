@@ -27,6 +27,10 @@ const FAQ = [
     q: 'Kan ik werken met betaalprovider-integraties?',
     a: 'Ja hoor. Wij werken met alle betaalproviders op de markt.',
   },
+  {
+    q: 'Heb ik een jaarlijks contract?',
+    a: 'Neen. Je betaalt bij ons per maand; je software is ook per maand opzegbaar, zonder enige kost.',
+  },
 ] as const
 
 export default function FaqSection() {
