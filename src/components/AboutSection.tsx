@@ -21,8 +21,8 @@ export default function AboutSection() {
             gemaakt: sneller, professioneler en goedkoper.
           </p>
           <p className="mt-4 text-lg leading-relaxed text-gray-600">
-            We werken vanuit Pelt (België) met korte lijnen: vragen stellen, feedback geven of hulp bij
-            opstarten — je spreekt rechtstreeks met ons team, geen anoniem callcenter.
+            Opstarten, training of een vraag tussendoor? Ons team in België helpt je persoonlijk verder — snel
+            en in je eigen taal.
           </p>
         </div>
       </div>
