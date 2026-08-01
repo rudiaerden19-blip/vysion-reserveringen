@@ -75,16 +75,7 @@ function maxSharpCssWidth(naturalWidth: number, dpr: number, viewportPaddingPx: 
   const d = dpr > 0 ? dpr : 1
   const cap = Math.floor(naturalWidth / d)
   const viewport = typeof window !== 'undefined' ? window.innerWidth - viewportPaddingPx : cap
-  return Math.max(240, Math.min(cap, viewport))
-}
-
-/** Hard cap: kleiner tonen = minder wazig bij lage bronresolutie. */
-const CAROUSEL_MAX_CSS = 480
-const LIGHTBOX_OPEN_MAX_CSS = 560
-const LIGHTBOX_ZOOM_MAX_CSS = 820
-
-function displayWidth(sharpMax: number, ceiling: number) {
-  return Math.min(sharpMax, ceiling)
+  return Math.max(280, Math.min(cap, viewport))
 }
 
 export default function PlatformShowcaseCarousel() {
@@ -92,7 +83,6 @@ export default function PlatformShowcaseCarousel() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [dpr, setDpr] = useState(1)
   const [naturalW, setNaturalW] = useState<number>(platformScreenshots[0].width)
-  const [fullSharp, setFullSharp] = useState(false)
   const total = platformScreenshots.length
   const current = platformScreenshots[index]
 
@@ -105,7 +95,6 @@ export default function PlatformShowcaseCarousel() {
 
   useEffect(() => {
     setNaturalW(current.width)
-    setFullSharp(false)
   }, [index, current.width])
 
   const goPrev = useCallback(() => {
@@ -132,10 +121,8 @@ export default function PlatformShowcaseCarousel() {
   }, [lightboxOpen, goPrev, goNext])
 
   const rawSrc = current.src.split('?')[0]
-  const sharpCap = maxSharpCssWidth(naturalW, dpr, 120)
-  const previewPx = displayWidth(maxSharpCssWidth(naturalW, dpr, 200), CAROUSEL_MAX_CSS)
-  const lightboxOpenPx = displayWidth(sharpCap, LIGHTBOX_OPEN_MAX_CSS)
-  const lightboxZoomPx = displayWidth(sharpCap, LIGHTBOX_ZOOM_MAX_CSS)
+  const previewCss = maxSharpCssWidth(naturalW, dpr, 220)
+  const lightboxCss = maxSharpCssWidth(naturalW, dpr, 160)
 
   const onImgLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const img = e.currentTarget
@@ -155,7 +142,7 @@ export default function PlatformShowcaseCarousel() {
             aria-label={`${current.label} vergroten`}
           >
             <div className="overflow-hidden rounded-2xl border-2 border-gray-300 bg-white shadow-home-card">
-              <div className="flex min-h-[200px] items-center justify-center bg-gray-50 p-4 sm:min-h-[220px]">
+              <div className="flex min-h-[260px] items-center justify-center bg-gray-50 p-4 sm:min-h-[300px]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   key={current.src}
@@ -165,7 +152,7 @@ export default function PlatformShowcaseCarousel() {
                   height={current.height}
                   onLoad={onImgLoad}
                   className="h-auto select-none"
-                  style={{ width: `${previewPx}px`, maxWidth: '100%' }}
+                  style={{ width: `${previewCss}px`, maxWidth: '100%' }}
                   decoding="async"
                   draggable={false}
                 />
@@ -202,13 +189,6 @@ export default function PlatformShowcaseCarousel() {
               </span>
             </p>
             <div className="flex max-w-full shrink-0 flex-wrap items-center justify-end gap-2">
-              <button
-                type="button"
-                onClick={() => setFullSharp((z) => !z)}
-                className="inline-flex h-10 items-center justify-center rounded-full bg-white/10 px-4 text-sm font-semibold transition hover:bg-white/20"
-              >
-                {fullSharp ? 'Kleiner' : 'Groter'}
-              </button>
               <a
                 href={rawSrc}
                 target="_blank"
@@ -228,10 +208,10 @@ export default function PlatformShowcaseCarousel() {
           </div>
 
           <div className="relative min-h-0 flex-1 overflow-auto" onClick={(e) => e.stopPropagation()}>
-            <div className="flex min-h-full items-start justify-center px-12 py-4 sm:px-16 md:px-20">
+            <div className="flex min-h-full items-center justify-center px-14 py-6 sm:px-20">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                key={`lb-${current.src}-${fullSharp}`}
+                key={`lb-${current.src}`}
                 src={current.src}
                 alt={current.alt}
                 width={current.width}
@@ -239,8 +219,8 @@ export default function PlatformShowcaseCarousel() {
                 onLoad={onImgLoad}
                 className="h-auto select-none"
                 style={{
-                  width: `${fullSharp ? lightboxZoomPx : lightboxOpenPx}px`,
-                  maxWidth: 'none',
+                  width: `${lightboxCss}px`,
+                  maxWidth: 'calc(100vw - 8rem)',
                 }}
                 decoding="sync"
                 draggable={false}
