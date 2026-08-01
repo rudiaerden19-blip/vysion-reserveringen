@@ -120,9 +120,8 @@ body {
   }
 }
 
-/* Platform-screenshots: nooit groter dan 1024 CSS-px (= bronbreedte, geen upscale). */
+/* Platform-screenshots: direct uit /public, geen kunstmatige downscale. */
 #platform .platform-shot,
 .platform-shot-lightbox {
-  max-width: min(100%, 1024px);
   height: auto;
 }

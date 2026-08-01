@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react'
 
-const ASSET_V = '5'
+const ASSET_V = '6'
 
 export const platformScreenshots = [
   {
@@ -109,7 +109,7 @@ export default function PlatformShowcaseCarousel() {
                   key={current.src}
                   src={current.src}
                   alt={current.alt}
-                  className="platform-shot h-auto w-full max-w-[1024px] select-none"
+                  className="platform-shot h-auto w-full select-none"
                   decoding="async"
                   draggable={false}
                 />
@@ -173,7 +173,7 @@ export default function PlatformShowcaseCarousel() {
               key={`lb-${current.src}`}
               src={current.src}
               alt={current.alt}
-              className="platform-shot-lightbox max-h-[calc(100dvh-6rem)] w-auto max-w-[min(1024px,calc(100vw-8rem))] select-none"
+              className="platform-shot-lightbox h-auto max-h-[calc(100dvh-6rem)] w-full max-w-[min(96vw,1400px)] select-none object-contain"
               decoding="sync"
               draggable={false}
             />
