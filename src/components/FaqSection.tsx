@@ -4,6 +4,10 @@ const FAQ = [
     a: 'Nee. TableVysion werkt perfect standalone of integreert in jouw kassa.',
   },
   {
+    q: "Kan ik TableVysion koppelen aan andere kassa's, zoals Lightspeed?",
+    a: "Ja. TableVysion werkt naast je bestaande kassa. Koppelingen met Lightspeed en andere gangbare kassasystemen zijn mogelijk; neem contact op als je een specifieke integratie nodig hebt.",
+  },
+  {
     q: 'Waar log ik in na registratie?',
     a: 'Via Inloggen op www.tablevysion.com met het e-mailadres van je account.',
   },
