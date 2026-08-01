@@ -9,7 +9,7 @@ const FAQ = [
   },
   {
     q: 'Werkt dit voor meerdere zaken?',
-    a: 'Ja. Elke registratie is een aparte tenant met eigen subdomein.',
+    a: 'Ja, overal waar internet aanwezig is.',
   },
 ] as const
 
