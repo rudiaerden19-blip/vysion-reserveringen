@@ -38,7 +38,7 @@ export default function FeaturesSection() {
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         <header className="features-section-header mx-auto max-w-2xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-accent">Functies</p>
+          <p className="mb-4 text-lg font-bold uppercase tracking-[0.12em] text-accent sm:text-xl">Functies</p>
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Wat je krijgt</h2>
           <p className="mt-5 text-lg leading-relaxed text-gray-600">
             Eén platform voor reserveringen — helder voor gasten, overzichtelijk voor jouw team.
