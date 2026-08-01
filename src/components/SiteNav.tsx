@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { LOGIN_URL, REGISTER_URL, SITE_NAME } from '@/lib/site'
 
 const links = [
@@ -19,15 +20,15 @@ export default function SiteNav() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <a href="/" className="text-xl sm:text-2xl font-bold text-accent">
+          <Link href="/" className="text-xl sm:text-2xl font-bold text-accent">
             {SITE_NAME}
-          </a>
+          </Link>
 
           <div className="hidden md:flex items-center gap-1">
             {links.map((l) => (
-              <a key={l.href} href={l.href} className={navLinkClass}>
+              <Link key={l.href} href={l.href} className={navLinkClass}>
                 {l.label}
-              </a>
+              </Link>
             ))}
             <a href={LOGIN_URL} className={navLinkClass}>
               Inloggen
@@ -35,12 +36,12 @@ export default function SiteNav() {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <a
+            <Link
               href={REGISTER_URL}
               className="inline-flex items-center justify-center rounded-md bg-accent hover:bg-accent/90 text-white text-sm font-semibold px-4 py-2.5 shadow-home-btn transition-colors"
             >
               Start gratis
-            </a>
+            </Link>
           </div>
 
           <button
@@ -62,14 +63,14 @@ export default function SiteNav() {
         {open && (
           <div className="md:hidden pb-4 space-y-1">
             {links.map((l) => (
-              <a
+              <Link
                 key={l.href}
                 href={l.href}
                 className="block py-3 px-3 rounded-lg text-white font-medium hover:bg-white/10"
                 onClick={() => setOpen(false)}
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
             <a
               href={LOGIN_URL}
@@ -78,13 +79,13 @@ export default function SiteNav() {
             >
               Inloggen
             </a>
-            <a
+            <Link
               href={REGISTER_URL}
               className="block mt-2 text-center rounded-full bg-accent text-white font-semibold py-3 shadow-home-btn"
               onClick={() => setOpen(false)}
             >
               Start gratis
-            </a>
+            </Link>
           </div>
         )}
       </div>

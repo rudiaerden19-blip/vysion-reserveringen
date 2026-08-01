@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { REGISTER_URL } from '@/lib/site'
 
 export default function LandingHero() {
@@ -26,18 +27,18 @@ export default function LandingHero() {
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a
+          <Link
             href={REGISTER_URL}
             className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-accent px-8 py-3 text-base font-semibold text-white shadow-home-btn hover:bg-accent/90 transition-colors"
           >
             Start gratis proefperiode
-          </a>
-          <a
+          </Link>
+          <Link
             href="/#functies"
             className="inline-flex min-h-[48px] items-center justify-center rounded-full border-2 border-white/80 px-8 py-3 text-base font-semibold text-white hover:bg-white/10 transition-colors"
           >
             Bekijk functies
-          </a>
+          </Link>
         </div>
 
         <p className="mt-6 text-sm text-white/70">14 dagen gratis · alleen reserveringsmodules</p>
