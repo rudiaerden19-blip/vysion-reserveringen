@@ -4,7 +4,7 @@ import { REGISTER_URL } from '@/lib/site'
 const features = [
   {
     title: 'Online en telefonisch reserveren',
-    body: 'Boekingspagina voor je zaak — gasten kiezen datum, tijd en aantal personen.',
+    body: 'Laat je gasten online reserveren of neem de reserveringen per telefoon aan — alles in één omgeving.',
   },
   {
     title: 'Admin overzicht',
