@@ -98,9 +98,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  ...(process.env.GOOGLE_SITE_VERIFICATION
-    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
-    : {}),
+  verification: {
+    google: 'tMipGDvnOGdkd-YO6Uqp6WL66p9GsxC6Y',
+  },
 }
 
 export default function RootLayout({
