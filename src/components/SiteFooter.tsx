@@ -12,11 +12,6 @@ export default function SiteFooter() {
         <div className="mb-6 grid gap-8 md:grid-cols-3 md:gap-6">
           <div>
             <p className="text-xl font-bold text-accent">{SITE_NAME}</p>
-            <p className="mt-2 max-w-md text-sm leading-snug text-gray-400">
-              {SITE_NAME} is een onderdeel van de Vysion Group International. Cloudsoftware wereldwijd in
-              meerdere talen. Vysion Group bouwt kassa&apos;s voor iedere sector: van kapper tot slager,
-              café&apos;s, bistro, kledingwinkel, retail en nog veel meer.
-            </p>
             <address className="mt-4 not-italic text-sm leading-snug text-gray-400">
               <span className="font-semibold text-white">Adres:</span>
               <br />
@@ -99,7 +94,7 @@ export default function SiteFooter() {
           </nav>
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-white/10 pt-8 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-2 border-t border-white/10 pt-5 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} Vysion Group. Alle rechten voorbehouden.
           </p>
