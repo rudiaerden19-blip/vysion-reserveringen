@@ -36,8 +36,8 @@ export default function FeaturesSection() {
         aria-hidden
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <header className="mx-auto mb-16 max-w-2xl text-center sm:mb-20">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+        <header className="mx-auto mb-14 max-w-2xl text-center sm:mb-20">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-accent">Functies</p>
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Wat je krijgt</h2>
           <p className="mt-5 text-lg leading-relaxed text-gray-600">
@@ -45,35 +45,30 @@ export default function FeaturesSection() {
           </p>
         </header>
 
-        <div className="flex flex-col gap-14 sm:gap-16 lg:gap-20">
-          <div className="relative mx-auto aspect-[4/3] w-full max-w-3xl overflow-hidden rounded-3xl shadow-home-photo ring-1 ring-black/5 lg:max-w-4xl">
-            <Image
-              src="/images/platform/reservaties-card.png"
-              alt="TableVysion reserveringen"
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 1024px) 100vw, 896px"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark/25 via-transparent to-transparent" aria-hidden />
-          </div>
-
-          <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:gap-10">
-            {features.map((f, index) => (
-              <article
-                key={f.title}
-                className="rounded-2xl border-l-4 border-l-accent bg-white p-6 shadow-home-card ring-1 ring-gray-200/80 transition-shadow hover:shadow-lg hover:ring-accent/20 sm:p-8"
-              >
-                <span className="mb-5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent">
-                  {index + 1}
-                </span>
-                <h3 className="mb-3 text-base font-bold leading-snug text-gray-900 sm:text-lg">{f.title}</h3>
-                <p className="text-sm leading-relaxed text-gray-600 sm:text-base">{f.body}</p>
-              </article>
-            ))}
-          </div>
+        <div className="features-photo-wrap relative aspect-[4/3] overflow-hidden rounded-3xl shadow-home-photo ring-1 ring-black/5">
+          <Image
+            src="/images/platform/reservaties-card.png"
+            alt="TableVysion reserveringen"
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 1024px) 100vw, 896px"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-dark/25 via-transparent to-transparent" aria-hidden />
         </div>
 
-        <div className="mt-16 text-center sm:mt-20">
+        <div className="features-card-grid">
+          {features.map((f, index) => (
+            <article key={f.title} className="features-card">
+              <span className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent">
+                {index + 1}
+              </span>
+              <h3 className="mb-3 text-base font-bold leading-snug text-gray-900 sm:text-lg">{f.title}</h3>
+              <p className="text-sm leading-relaxed text-gray-600 sm:text-base">{f.body}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-16 text-center sm:mt-20 lg:mt-24">
           <Link
             href={REGISTER_URL}
             className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-accent px-8 py-3 text-base font-semibold text-white shadow-home-btn transition-colors hover:bg-accent/90"
