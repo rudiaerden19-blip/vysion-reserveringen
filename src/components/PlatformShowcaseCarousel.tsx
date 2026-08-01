@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react'
 
-const ASSET_V = '7'
+const ASSET_V = '8'
 
 export const platformScreenshots = [
   {
@@ -11,6 +11,13 @@ export const platformScreenshots = [
     label: 'Plattegrond',
     width: 2541,
     height: 974,
+  },
+  {
+    src: `/images/platform/plattegrond-live.png?v=${ASSET_V}`,
+    alt: 'Plattegrond met actieve reservaties en tafelbezetting',
+    label: 'Plattegrond live',
+    width: 2542,
+    height: 968,
   },
   {
     src: `/images/platform/nieuwe-reservatie.png?v=${ASSET_V}`,
@@ -27,11 +34,25 @@ export const platformScreenshots = [
     height: 974,
   },
   {
+    src: `/images/platform/planning-tafels.png?v=${ASSET_V}`,
+    alt: 'Tafelplanning met reservatieblokken per tijdslot',
+    label: 'Planning per tafel',
+    width: 2518,
+    height: 912,
+  },
+  {
     src: `/images/platform/rapporten.png?v=${ASSET_V}`,
     alt: 'Rapporten en walk-in in TableVysion',
     label: 'Rapporten',
     width: 2550,
     height: 975,
+  },
+  {
+    src: `/images/platform/rapporten-dashboard.png?v=${ASSET_V}`,
+    alt: 'Rapporten met statistieken en terugkerende gasten',
+    label: 'Rapporten & stats',
+    width: 2545,
+    height: 912,
   },
   {
     src: `/images/platform/contacten.png?v=${ASSET_V}`,
