@@ -7,31 +7,38 @@ const screenshots = [
     src: '/images/platform/plattegrond.png',
     alt: 'TableVysion tafelplattegrond met live bezetting',
     label: 'Plattegrond',
+    width: 2560,
+    height: 980,
   },
   {
     src: '/images/platform/nieuwe-reservatie.png',
     alt: 'Nieuwe reservatie aanmaken in TableVysion',
     label: 'Nieuwe reservatie',
+    width: 2560,
+    height: 980,
   },
   {
     src: '/images/platform/tafels.png',
     alt: 'Tafeloverzicht en tijdsloten in TableVysion',
     label: 'Tafels & planning',
+    width: 2560,
+    height: 975,
   },
   {
     src: '/images/platform/rapporten.png',
     alt: 'Rapporten en walk-in in TableVysion',
     label: 'Rapporten',
+    width: 2560,
+    height: 977,
   },
   {
     src: '/images/platform/contacten.png',
     alt: 'Gastencontacten en VIP in TableVysion',
     label: 'Contacten',
+    width: 2560,
+    height: 975,
   },
 ] as const
-
-const SHOT_WIDTH = 2048
-const SHOT_HEIGHT = 784
 
 function NavArrow({
   direction,
@@ -122,9 +129,9 @@ export default function PlatformShowcaseSection() {
                     key={current.src}
                     src={current.src}
                     alt={current.alt}
-                    width={SHOT_WIDTH}
-                    height={SHOT_HEIGHT}
-                    className="h-full w-full object-contain object-center p-1 sm:p-2"
+                    width={current.width}
+                    height={current.height}
+                    className="h-full w-full object-contain object-center p-1 sm:p-2 [image-rendering:-webkit-optimize-contrast]"
                     decoding="async"
                     draggable={false}
                   />
@@ -181,9 +188,9 @@ export default function PlatformShowcaseSection() {
                 key={`lb-${current.src}`}
                 src={current.src}
                 alt={current.alt}
-                width={SHOT_WIDTH}
-                height={SHOT_HEIGHT}
-                className="max-h-[min(calc(100dvh-4.5rem),92vh)] w-auto max-w-[min(calc(100vw-7rem),2048px)] object-contain object-center select-none"
+                width={current.width}
+                height={current.height}
+                className="max-h-[min(calc(100dvh-4.5rem),92vh)] w-auto max-w-[min(calc(100vw-7rem),2560px)] object-contain object-center select-none [image-rendering:-webkit-optimize-contrast]"
                 decoding="sync"
                 draggable={false}
               />
