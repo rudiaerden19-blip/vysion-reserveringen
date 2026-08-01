@@ -8,7 +8,7 @@ const features = [
   },
   {
     title: 'Admin overzicht',
-    body: 'Reserveringen bevestigen, wijzigen en opvolgen vanuit één scherm.',
+    body: 'Reserveringen bevestigen, wijzigen en opvolgen vanuit één scherm, waar je ook bent.',
   },
   {
     title: 'Minder no-shows',
