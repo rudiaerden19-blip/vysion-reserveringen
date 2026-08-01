@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { LOGIN_URL, REGISTER_URL, SITE_NAME } from '@/lib/site'
+import { LOGIN_PATH, REGISTER_URL, SITE_NAME } from '@/lib/site'
 
 const links = [
   { href: '/', label: 'Home' },
@@ -30,9 +30,9 @@ export default function SiteNav() {
                 {l.label}
               </Link>
             ))}
-            <a href={LOGIN_URL} className={navLinkClass}>
+            <Link href={LOGIN_PATH} className={navLinkClass}>
               Inloggen
-            </a>
+            </Link>
           </div>
 
           <div className="hidden md:flex items-center gap-3">
@@ -72,13 +72,13 @@ export default function SiteNav() {
                 {l.label}
               </Link>
             ))}
-            <a
-              href={LOGIN_URL}
+            <Link
+              href={LOGIN_PATH}
               className="block py-3 px-3 rounded-lg text-white font-medium hover:bg-white/10"
               onClick={() => setOpen(false)}
             >
               Inloggen
-            </a>
+            </Link>
             <Link
               href={REGISTER_URL}
               className="block mt-2 text-center rounded-full bg-accent text-white font-semibold py-3 shadow-home-btn"

@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import SiteNav from '@/components/SiteNav'
-import { LOGIN_URL, PRODUCT_LINE, SITE_NAME } from '@/lib/site'
+import { LOGIN_PATH, PRODUCT_LINE, SITE_NAME } from '@/lib/site'
 import { internalShopPathToTenantHostPath } from '@/lib/redirect-after-register'
 
 type FormState = {
@@ -151,9 +151,9 @@ export default function RegistreerPage() {
 
             <p className="text-center text-sm text-gray-600">
               Al een account?{' '}
-              <a href={LOGIN_URL} className="text-accent font-medium hover:underline">
+              <Link href={LOGIN_PATH} className="text-accent font-medium hover:underline">
                 Inloggen
-              </a>
+              </Link>
             </p>
           </form>
 
