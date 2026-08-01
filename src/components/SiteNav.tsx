@@ -1,13 +1,16 @@
 'use client'
 
 import { useState } from 'react'
-import { REGISTER_URL, SITE_NAME } from '@/lib/site'
+import { LOGIN_URL, REGISTER_URL, SITE_NAME } from '@/lib/site'
 
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/#functies', label: 'Functies' },
-  { href: '/#waarom', label: 'Waarom' },
+  { href: '/#prijzen', label: 'Prijzen' },
+  { href: '/#faq', label: 'FAQ' },
 ]
+
+const navLinkClass =
+  'inline-flex min-h-11 items-center rounded-lg px-3 py-2 text-gray-300 hover:text-white transition-colors'
 
 export default function SiteNav() {
   const [open, setOpen] = useState(false)
@@ -22,14 +25,13 @@ export default function SiteNav() {
 
           <div className="hidden md:flex items-center gap-1">
             {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="inline-flex min-h-11 items-center rounded-lg px-3 py-2 text-gray-300 hover:text-white transition-colors"
-              >
+              <a key={l.href} href={l.href} className={navLinkClass}>
                 {l.label}
               </a>
             ))}
+            <a href={LOGIN_URL} className={navLinkClass}>
+              Inloggen
+            </a>
           </div>
 
           <div className="hidden md:flex items-center gap-3">
@@ -69,6 +71,13 @@ export default function SiteNav() {
                 {l.label}
               </a>
             ))}
+            <a
+              href={LOGIN_URL}
+              className="block py-3 px-3 rounded-lg text-white font-medium hover:bg-white/10"
+              onClick={() => setOpen(false)}
+            >
+              Inloggen
+            </a>
             <a
               href={REGISTER_URL}
               className="block mt-2 text-center rounded-full bg-accent text-white font-semibold py-3 shadow-home-btn"
