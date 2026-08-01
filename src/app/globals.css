@@ -119,3 +119,10 @@ body {
     row-gap: 1.5rem !important;
   }
 }
+
+/* Platform-screenshots: nooit groter dan 1024 CSS-px (= bronbreedte, geen upscale). */
+#platform .platform-shot,
+.platform-shot-lightbox {
+  max-width: min(100%, 1024px);
+  height: auto;
+}

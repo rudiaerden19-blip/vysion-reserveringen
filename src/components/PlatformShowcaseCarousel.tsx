@@ -2,44 +2,33 @@
 
 import { useCallback, useEffect, useState } from 'react'
 
-/** Cache-bust: v4 = 2× PNG + retina-safe weergave */
-const ASSET_V = '4'
+const ASSET_V = '5'
 
 export const platformScreenshots = [
   {
     src: `/images/platform/plattegrond.png?v=${ASSET_V}`,
     alt: 'TableVysion tafelplattegrond met live bezetting',
     label: 'Plattegrond',
-    width: 2048,
-    height: 784,
   },
   {
     src: `/images/platform/nieuwe-reservatie.png?v=${ASSET_V}`,
     alt: 'Nieuwe reservatie aanmaken in TableVysion',
     label: 'Nieuwe reservatie',
-    width: 1786,
-    height: 1808,
   },
   {
     src: `/images/platform/tafels.png?v=${ASSET_V}`,
     alt: 'Tafeloverzicht en tijdsloten in TableVysion',
     label: 'Tafels & planning',
-    width: 2048,
-    height: 780,
   },
   {
     src: `/images/platform/rapporten.png?v=${ASSET_V}`,
     alt: 'Rapporten en walk-in in TableVysion',
     label: 'Rapporten',
-    width: 2048,
-    height: 782,
   },
   {
     src: `/images/platform/contacten.png?v=${ASSET_V}`,
     alt: 'Gastencontacten en VIP in TableVysion',
     label: 'Contacten',
-    width: 2048,
-    height: 780,
   },
 ] as const
 
@@ -70,32 +59,11 @@ function NavArrow({
   )
 }
 
-/** Max CSS-breedte zonder upscaling op retina (1 beeldpixel ≈ 1 schermpixel). */
-function maxSharpCssWidth(naturalWidth: number, dpr: number, viewportPaddingPx: number) {
-  const d = dpr > 0 ? dpr : 1
-  const cap = Math.floor(naturalWidth / d)
-  const viewport = typeof window !== 'undefined' ? window.innerWidth - viewportPaddingPx : cap
-  return Math.max(280, Math.min(cap, viewport))
-}
-
 export default function PlatformShowcaseCarousel() {
   const [index, setIndex] = useState(0)
   const [lightboxOpen, setLightboxOpen] = useState(false)
-  const [dpr, setDpr] = useState(1)
-  const [naturalW, setNaturalW] = useState<number>(platformScreenshots[0].width)
   const total = platformScreenshots.length
   const current = platformScreenshots[index]
-
-  useEffect(() => {
-    setDpr(window.devicePixelRatio || 1)
-    const onResize = () => setDpr(window.devicePixelRatio || 1)
-    window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
-  }, [])
-
-  useEffect(() => {
-    setNaturalW(current.width)
-  }, [index, current.width])
 
   const goPrev = useCallback(() => {
     setIndex((i) => (i - 1 + total) % total)
@@ -121,13 +89,6 @@ export default function PlatformShowcaseCarousel() {
   }, [lightboxOpen, goPrev, goNext])
 
   const rawSrc = current.src.split('?')[0]
-  const previewCss = maxSharpCssWidth(naturalW, dpr, 220)
-  const lightboxCss = maxSharpCssWidth(naturalW, dpr, 160)
-
-  const onImgLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    const img = e.currentTarget
-    if (img.naturalWidth > 0) setNaturalW(img.naturalWidth)
-  }
 
   return (
     <>
@@ -142,17 +103,13 @@ export default function PlatformShowcaseCarousel() {
             aria-label={`${current.label} vergroten`}
           >
             <div className="overflow-hidden rounded-2xl border-2 border-gray-300 bg-white shadow-home-card">
-              <div className="flex min-h-[260px] items-center justify-center bg-gray-50 p-4 sm:min-h-[300px]">
+              <div className="flex justify-center bg-gray-50 p-3 sm:p-4">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   key={current.src}
                   src={current.src}
                   alt={current.alt}
-                  width={current.width}
-                  height={current.height}
-                  onLoad={onImgLoad}
-                  className="h-auto select-none"
-                  style={{ width: `${previewCss}px`, maxWidth: '100%' }}
+                  className="platform-shot h-auto w-full max-w-[1024px] select-none"
                   decoding="async"
                   draggable={false}
                 />
@@ -172,14 +129,14 @@ export default function PlatformShowcaseCarousel() {
 
       {lightboxOpen && (
         <div
-          className="fixed inset-0 z-[100] flex flex-col bg-black/95 p-2 sm:p-3"
+          className="fixed inset-0 z-[100] flex flex-col bg-black/92 p-3 sm:p-4"
           role="dialog"
           aria-modal="true"
           aria-label={current.label}
           onClick={() => setLightboxOpen(false)}
         >
           <div
-            className="mb-2 flex shrink-0 flex-wrap items-center justify-between gap-2 px-1 text-white sm:mb-3"
+            className="mb-3 flex shrink-0 flex-wrap items-center justify-between gap-2 text-white"
             onClick={(e) => e.stopPropagation()}
           >
             <p className="truncate text-sm font-semibold sm:text-base">
@@ -188,50 +145,44 @@ export default function PlatformShowcaseCarousel() {
                 ({index + 1}/{total})
               </span>
             </p>
-            <div className="flex max-w-full shrink-0 flex-wrap items-center justify-end gap-2">
+            <div className="flex shrink-0 gap-2">
               <a
                 href={rawSrc}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-10 items-center justify-center rounded-full bg-white/10 px-4 text-sm font-semibold transition hover:bg-white/20"
+                className="inline-flex h-10 items-center justify-center rounded-full bg-white/15 px-4 text-sm font-semibold hover:bg-white/25"
               >
-                PNG openen
+                Origineel
               </a>
               <button
                 type="button"
                 onClick={() => setLightboxOpen(false)}
-                className="inline-flex h-10 items-center justify-center rounded-full bg-white/10 px-4 text-sm font-semibold transition hover:bg-white/20"
+                className="inline-flex h-10 items-center justify-center rounded-full bg-white/15 px-4 text-sm font-semibold hover:bg-white/25"
               >
                 Sluiten
               </button>
             </div>
           </div>
 
-          <div className="relative min-h-0 flex-1 overflow-auto" onClick={(e) => e.stopPropagation()}>
-            <div className="flex min-h-full items-center justify-center px-14 py-6 sm:px-20">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                key={`lb-${current.src}`}
-                src={current.src}
-                alt={current.alt}
-                width={current.width}
-                height={current.height}
-                onLoad={onImgLoad}
-                className="h-auto select-none"
-                style={{
-                  width: `${lightboxCss}px`,
-                  maxWidth: 'calc(100vw - 8rem)',
-                }}
-                decoding="sync"
-                draggable={false}
-              />
-            </div>
-            <div className="pointer-events-none fixed inset-y-0 left-0 flex items-center pl-1 sm:pl-2">
+          <div
+            className="relative flex min-h-0 flex-1 items-center justify-center overflow-auto px-14 sm:px-20"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              key={`lb-${current.src}`}
+              src={current.src}
+              alt={current.alt}
+              className="platform-shot-lightbox max-h-[calc(100dvh-6rem)] w-auto max-w-[min(1024px,calc(100vw-8rem))] select-none"
+              decoding="sync"
+              draggable={false}
+            />
+            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-1">
               <div className="pointer-events-auto">
                 <NavArrow direction="prev" onClick={goPrev} label="Vorige afbeelding" />
               </div>
             </div>
-            <div className="pointer-events-none fixed inset-y-0 right-0 flex items-center pr-1 sm:pr-2">
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-1">
               <div className="pointer-events-auto">
                 <NavArrow direction="next" onClick={goNext} label="Volgende afbeelding" />
               </div>
