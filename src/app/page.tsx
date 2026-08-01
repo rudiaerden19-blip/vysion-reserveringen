@@ -14,8 +14,8 @@ export default function Home() {
       <main>
         <LandingHero />
         <FeaturesSection />
-        <WhySection />
         <PlatformShowcaseSection />
+        <WhySection />
         <PricingSection />
         <FaqSection />
       </main>
