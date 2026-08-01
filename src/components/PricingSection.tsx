@@ -49,7 +49,7 @@ export default function PricingSection() {
     <section id="prijzen" className="relative scroll-mt-24 overflow-hidden bg-[#e3e3e3] py-20 sm:py-28 lg:py-32">
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center sm:mb-14">
-          <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl">Simpele, transparante prijzen</h2>
+          <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl">1 simpele prijs</h2>
           <p className="text-lg text-gray-600 sm:text-xl">Alles voor tafelreserveringen. Geen verrassingen.</p>
           <p className="mt-3 text-base font-medium text-gray-500 sm:text-lg">
             14 dagen gratis proberen · Geen creditcard nodig · Maandelijks opzegbaar
