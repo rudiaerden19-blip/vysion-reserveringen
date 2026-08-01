@@ -12,7 +12,7 @@ const features = [
   },
   {
     title: 'Minder no-shows',
-    body: 'Duidelijke bevestiging en communicatie naar je gasten.',
+    body: 'Duidelijke bevestiging en communicatie naar je gasten per e-mail en/of WhatsApp.',
   },
 ]
 
