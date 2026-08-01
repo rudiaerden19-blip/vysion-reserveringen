@@ -1,7 +1,6 @@
 'use client'
 
 import { useCallback, useEffect, useState } from 'react'
-import Image from 'next/image'
 
 const screenshots = [
   {
@@ -30,6 +29,9 @@ const screenshots = [
     label: 'Contacten',
   },
 ] as const
+
+const SHOT_WIDTH = 2048
+const SHOT_HEIGHT = 784
 
 function NavArrow({
   direction,
@@ -115,14 +117,16 @@ export default function PlatformShowcaseSection() {
             >
               <div className="overflow-hidden rounded-2xl border border-gray-200/90 bg-white shadow-home-card ring-1 ring-black/5 transition group-hover:ring-accent/30">
                 <div className="relative aspect-[16/9] w-full bg-gray-100 sm:aspect-[16/10] lg:min-h-[420px] lg:aspect-auto lg:h-[min(52vh,520px)]">
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     key={current.src}
                     src={current.src}
                     alt={current.alt}
-                    fill
-                    className="object-contain object-center p-1 sm:p-2"
-                    sizes="(max-width: 1024px) 90vw, 960px"
-                    priority={index === 0}
+                    width={SHOT_WIDTH}
+                    height={SHOT_HEIGHT}
+                    className="h-full w-full object-contain object-center p-1 sm:p-2"
+                    decoding="async"
+                    draggable={false}
                   />
                 </div>
                 <figcaption className="flex items-center justify-between gap-3 border-t border-gray-100 px-5 py-4 sm:px-6 sm:py-5">
@@ -170,18 +174,19 @@ export default function PlatformShowcaseSection() {
             className="relative min-h-0 flex-1 w-full"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="absolute inset-0 px-12 sm:px-16 md:px-20">
-              <div className="relative h-full w-full min-h-[calc(100dvh-4.5rem)] sm:min-h-[calc(100dvh-5rem)]">
-                <Image
-                  key={`lb-${current.src}`}
-                  src={current.src}
-                  alt={current.alt}
-                  fill
-                  className="object-contain object-center"
-                  sizes="100vw"
-                  priority
-                />
-              </div>
+            <div className="absolute inset-0 flex items-center justify-center px-12 sm:px-16 md:px-20">
+              {/* Originele PNG (2048px) — geen Next-compressie, max 1:1 pixels */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                key={`lb-${current.src}`}
+                src={current.src}
+                alt={current.alt}
+                width={SHOT_WIDTH}
+                height={SHOT_HEIGHT}
+                className="max-h-[min(calc(100dvh-4.5rem),92vh)] w-auto max-w-[min(calc(100vw-7rem),2048px)] object-contain object-center select-none"
+                decoding="sync"
+                draggable={false}
+              />
             </div>
             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-1 sm:pl-2">
               <div className="pointer-events-auto">
