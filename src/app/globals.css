@@ -40,4 +40,9 @@ body {
       0 14px 36px -8px rgba(0, 0, 0, 0.2),
       0 6px 18px rgba(0, 0, 0, 0.13);
   }
+  .shadow-home-float {
+    box-shadow:
+      0 12px 28px -8px rgba(0, 0, 0, 0.18),
+      0 4px 12px rgba(0, 0, 0, 0.1);
+  }
 }
