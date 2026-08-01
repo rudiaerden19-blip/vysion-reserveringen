@@ -27,7 +27,7 @@ export default function LandingHero() {
           Gasten reserveren online — jij ziet wie wanneer komt.
         </p>
         <p className="mt-3 text-base sm:text-lg text-white/85 max-w-2xl leading-relaxed">
-          Bevestigingen, tijdsloten en overzicht in één admin. Geen volledige kassa nodig om te starten.
+          Bevestigingen, tijdsloten en overzicht in één admin.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
