@@ -1,7 +1,7 @@
 const FAQ = [
   {
     q: 'Heb ik een volledige kassa nodig?',
-    a: 'Nee. TableVysion activeert alleen reserveringsmodules. Later uitbreiden kan altijd.',
+    a: 'Nee. TableVysion werkt perfect standalone of integreert in jouw kassa.',
   },
   {
     q: 'Waar log ik in na registratie?',
