@@ -25,6 +25,22 @@ export default function SiteFooter() {
             </address>
             <div className="mt-4 flex flex-col gap-1.5 text-sm">
               <a
+                href={MAIN_PLATFORM_URL}
+                className="font-medium text-accent hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                www.vysion-kassa.com
+              </a>
+              <a
+                href="https://www.vysionorder.com"
+                className="font-medium text-accent hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                www.vysionorder.com
+              </a>
+              <a
                 href="https://www.vysionapps.io"
                 className="font-medium text-accent hover:underline"
                 target="_blank"
