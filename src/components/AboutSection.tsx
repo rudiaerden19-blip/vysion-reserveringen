@@ -17,6 +17,10 @@ export default function AboutSection() {
             hotels en zaalverhuur die overzicht willen zonder ingewikkelde contracten of verborgen kosten.
           </p>
           <p className="mt-4 text-lg leading-relaxed text-gray-600">
+            We hebben alle reserveringsplatformen op een rijtje gezet en daaruit het beste van alle werelden
+            gemaakt: sneller, professioneler en goedkoper.
+          </p>
+          <p className="mt-4 text-lg leading-relaxed text-gray-600">
             We werken vanuit Pelt (België) met korte lijnen: vragen stellen, feedback geven of hulp bij
             opstarten — je spreekt rechtstreeks met ons team, geen anoniem callcenter.
           </p>
