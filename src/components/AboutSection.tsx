@@ -13,7 +13,7 @@ export default function AboutSection() {
             Horeca software van mensen die meedenken
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-gray-600 sm:text-xl">
-            {SITE_NAME} is het reserveringsplatform van Vysion Group International — gebouwd voor restaurants,
+            {SITE_NAME} is het reserveringsplatform van Vysion Group International, gebouwd voor restaurants,
             hotels en zaalverhuur die overzicht willen zonder ingewikkelde contracten of verborgen kosten.
           </p>
           <p className="mt-4 text-lg leading-relaxed text-gray-600">
@@ -21,7 +21,7 @@ export default function AboutSection() {
             gemaakt: sneller, professioneler en goedkoper.
           </p>
           <p className="mt-4 text-lg leading-relaxed text-gray-600">
-            Opstarten, training of een vraag tussendoor? Ons team helpt je persoonlijk verder — snel en in je
+            Opstarten, training of een vraag tussendoor? Ons team helpt je persoonlijk verder, snel en in je
             eigen taal.
           </p>
         </div>
