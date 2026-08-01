@@ -21,7 +21,7 @@ export default function WhySection() {
           Waarom TableVysion?
         </h2>
 
-        <ul className="mx-auto w-full max-w-2xl space-y-5 sm:space-y-6">
+        <ul className="mx-auto w-fit max-w-[min(100%,36rem)] space-y-5 sm:space-y-6 px-2">
           {points.map((p) => (
             <li key={p} className="flex items-start gap-3 sm:gap-4">
               <span
