@@ -3,7 +3,7 @@ import { REGISTER_URL } from '@/lib/site'
 const points = [
   'Geen losse tools — alles in één omgeving, in één handomdraai.',
   'Het meest professionele reserveringsplatform op de markt.',
-  'Multi-tenant platform: veilig voor elke zaak apart.',
+  'Sneller en goedkoper dan de meeste andere platformen.',
 ]
 
 export default function WhySection() {
