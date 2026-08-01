@@ -25,7 +25,7 @@ export default function FeaturesSection() {
   return (
     <section
       id="functies"
-      className="relative py-20 sm:py-28 overflow-hidden border-b border-gray-100 bg-gradient-to-b from-[#faf8f6] via-white to-[#f6f4f1]"
+      className="relative overflow-hidden border-b border-gray-100 bg-gradient-to-b from-[#faf8f6] via-white to-[#f6f4f1] py-24 sm:py-32 lg:py-36"
     >
       <div
         className="pointer-events-none absolute -left-32 top-20 h-80 w-80 rounded-full bg-accent/[0.07] blur-3xl"
@@ -36,49 +36,47 @@ export default function FeaturesSection() {
         aria-hidden
       />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="text-center mb-14 sm:mb-16 max-w-2xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent mb-3">Functies</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">Wat je krijgt</h2>
-          <p className="mt-4 text-lg text-gray-600 leading-relaxed">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <header className="mx-auto mb-16 max-w-2xl text-center sm:mb-20">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-accent">Functies</p>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Wat je krijgt</h2>
+          <p className="mt-5 text-lg leading-relaxed text-gray-600">
             Eén platform voor reserveringen — helder voor gasten, overzichtelijk voor jouw team.
           </p>
         </header>
 
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start mb-14">
-          <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-home-photo ring-1 ring-black/5">
+        <div className="flex flex-col gap-14 sm:gap-16 lg:gap-20">
+          <div className="relative mx-auto aspect-[4/3] w-full max-w-3xl overflow-hidden rounded-3xl shadow-home-photo ring-1 ring-black/5 lg:max-w-4xl">
             <Image
               src="/images/platform/reservaties-card.png"
               alt="TableVysion reserveringen"
               fill
               className="object-cover object-center"
-              sizes="(max-width: 1024px) 100vw, 480px"
+              sizes="(max-width: 1024px) 100vw, 896px"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-dark/25 via-transparent to-transparent" aria-hidden />
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
+          <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:gap-10">
             {features.map((f, index) => (
               <article
                 key={f.title}
-                className="group relative rounded-2xl bg-white p-5 sm:p-6 shadow-home-card ring-1 ring-gray-200/80 border-l-4 border-l-accent transition-shadow hover:shadow-lg hover:ring-accent/20"
+                className="rounded-2xl border-l-4 border-l-accent bg-white p-6 shadow-home-card ring-1 ring-gray-200/80 transition-shadow hover:shadow-lg hover:ring-accent/20 sm:p-8"
               >
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent mb-3">
+                <span className="mb-5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent">
                   {index + 1}
                 </span>
-                <h3 className="font-bold text-gray-900 text-base sm:text-[1.05rem] leading-snug mb-2">
-                  {f.title}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{f.body}</p>
+                <h3 className="mb-3 text-base font-bold leading-snug text-gray-900 sm:text-lg">{f.title}</h3>
+                <p className="text-sm leading-relaxed text-gray-600 sm:text-base">{f.body}</p>
               </article>
             ))}
           </div>
         </div>
 
-        <div className="text-center">
+        <div className="mt-16 text-center sm:mt-20">
           <Link
             href={REGISTER_URL}
-            className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-accent px-8 py-3 text-base font-semibold text-white shadow-home-btn hover:bg-accent/90 transition-colors"
+            className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-accent px-8 py-3 text-base font-semibold text-white shadow-home-btn transition-colors hover:bg-accent/90"
           >
             Account aanmaken →
           </Link>
