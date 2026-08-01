@@ -3,13 +3,9 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { MAIN_PLATFORM_URL, REGISTER_URL } from '@/lib/site'
-import {
-  TABLEVYSION_PRO_MONTHLY,
-  TABLEVYSION_STARTER_MONTHLY,
-  displayPrice,
-} from '@/lib/pricing'
+import { TABLEVYSION_MONTHLY, displayPrice } from '@/lib/pricing'
 
-const starterFeatures = [
+const planFeatures = [
   'Online & telefonisch reserveren',
   'Publieke reserveringspagina voor gasten',
   'Admin: bevestigen, wijzigen en annuleren',
@@ -20,18 +16,6 @@ const starterFeatures = [
   'Website van je zaak (profiel & content)',
   'Meertalig voor gasten',
   'E-mail & telefoon support',
-]
-
-const proFeatures = [
-  'Alles uit TableVysion, plus:',
-  'Tafelplattegrond & tafelbeheer',
-  'No-show bescherming & voorschotregels',
-  'Reserveringsrapporten',
-  'SEO & vindbaarheid',
-  'Reviews op je website',
-  'Promoties & marketingtools',
-  'Uitgebreidere instellingen & shifts',
-  'Prioriteit bij support',
 ]
 
 function FeatureCheck({ label }: { label: string }) {
@@ -54,8 +38,7 @@ function FeatureCheck({ label }: { label: string }) {
 export default function PricingSection() {
   const [isYearly, setIsYearly] = useState(false)
 
-  const starterPrice = displayPrice(TABLEVYSION_STARTER_MONTHLY, isYearly)
-  const proPrice = displayPrice(TABLEVYSION_PRO_MONTHLY, isYearly)
+  const price = displayPrice(TABLEVYSION_MONTHLY, isYearly)
   const periodLabel = isYearly ? '/jaar' : '/maand'
 
   return (
@@ -99,8 +82,8 @@ export default function PricingSection() {
           )}
         </div>
 
-        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2 lg:gap-8">
-          <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md">
+        <div className="mx-auto max-w-lg">
+          <div className="overflow-hidden rounded-2xl border-2 border-gray-900 bg-white shadow-md transition-shadow hover:shadow-lg">
             <div className="p-6 lg:p-8">
               <div className="mb-5 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10">
@@ -111,64 +94,16 @@ export default function PricingSection() {
                 <h3 className="text-xl font-bold text-accent">TableVysion</h3>
               </div>
               <div className="mb-2 flex items-baseline">
-                <span className="text-4xl font-bold tabular-nums text-gray-900 sm:text-5xl">€{starterPrice}</span>
+                <span className="text-4xl font-bold tabular-nums text-gray-900 sm:text-5xl">€{price}</span>
                 <span className="ml-2 font-medium text-accent">{periodLabel}</span>
               </div>
               {isYearly && (
                 <p className="mb-4 text-sm font-medium text-accent">
-                  = €{Math.round(TABLEVYSION_STARTER_MONTHLY * 0.9)}/maand
+                  = €{Math.round(TABLEVYSION_MONTHLY * 0.9)}/maand
                 </p>
               )}
               <ul className="mb-8 space-y-3">
-                {starterFeatures.map((f) => (
-                  <FeatureCheck key={f} label={f} />
-                ))}
-              </ul>
-              <Link
-                href={REGISTER_URL}
-                className="block w-full rounded-full border-2 border-gray-900 py-3.5 text-center font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
-              >
-                Start gratis proefperiode
-              </Link>
-              <p className="mt-3 text-center text-sm font-medium text-accent">Maandelijks opzegbaar</p>
-            </div>
-          </div>
-
-          <div className="relative overflow-hidden rounded-2xl border-2 border-gray-900 bg-white shadow-md transition-shadow hover:shadow-lg">
-            <div className="absolute right-4 top-4 rounded-full bg-accent px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white">
-              Populair
-            </div>
-            <div className="p-6 lg:p-8">
-              <div className="mb-5 flex items-center gap-3 pr-16">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10">
-                  <svg className="h-5 w-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-accent">TableVysion Premium</h3>
-              </div>
-              <div className="mb-2 flex flex-wrap items-center gap-2">
-                <span className="text-lg text-gray-400 line-through">
-                  €{isYearly ? Math.round(129 * 12 * 0.9) : 129}/maand
-                </span>
-                <span className="rounded-md bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600">-23%</span>
-              </div>
-              <div className="mb-2 flex items-baseline">
-                <span className="text-4xl font-bold tabular-nums text-gray-900 sm:text-5xl">€{proPrice}</span>
-                <span className="ml-2 font-medium text-accent">{periodLabel}</span>
-              </div>
-              {isYearly && (
-                <p className="mb-4 text-sm font-medium text-accent">
-                  = €{Math.round(TABLEVYSION_PRO_MONTHLY * 0.9)}/maand
-                </p>
-              )}
-              <ul className="mb-8 space-y-3">
-                {proFeatures.map((f) => (
+                {planFeatures.map((f) => (
                   <FeatureCheck key={f} label={f} />
                 ))}
               </ul>
