@@ -19,6 +19,10 @@ const FAQ = [
     q: 'Kan ik met voorschotten werken?',
     a: 'Ja. Per reservering kan je een voorschot vragen aan de klant. Je kan dit ook automatisch laten lopen; stel het in via je instellingen.',
   },
+  {
+    q: 'Moet ik per reservering een procent afgeven aan TableVysion?',
+    a: 'Neen. Wij werken niet met transactiekosten of dergelijke.',
+  },
 ] as const
 
 export default function FaqSection() {
