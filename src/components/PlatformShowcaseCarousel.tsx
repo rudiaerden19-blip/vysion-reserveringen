@@ -2,33 +2,43 @@
 
 import { useCallback, useEffect, useState } from 'react'
 
-const ASSET_V = '6'
+const ASSET_V = '7'
 
 export const platformScreenshots = [
   {
     src: `/images/platform/plattegrond.png?v=${ASSET_V}`,
     alt: 'TableVysion tafelplattegrond met live bezetting',
     label: 'Plattegrond',
+    width: 2541,
+    height: 974,
   },
   {
     src: `/images/platform/nieuwe-reservatie.png?v=${ASSET_V}`,
     alt: 'Nieuwe reservatie aanmaken in TableVysion',
     label: 'Nieuwe reservatie',
+    width: 2549,
+    height: 977,
   },
   {
     src: `/images/platform/tafels.png?v=${ASSET_V}`,
     alt: 'Tafeloverzicht en tijdsloten in TableVysion',
     label: 'Tafels & planning',
+    width: 2556,
+    height: 974,
   },
   {
     src: `/images/platform/rapporten.png?v=${ASSET_V}`,
     alt: 'Rapporten en walk-in in TableVysion',
     label: 'Rapporten',
+    width: 2550,
+    height: 975,
   },
   {
     src: `/images/platform/contacten.png?v=${ASSET_V}`,
     alt: 'Gastencontacten en VIP in TableVysion',
     label: 'Contacten',
+    width: 2556,
+    height: 974,
   },
 ] as const
 
@@ -109,6 +119,8 @@ export default function PlatformShowcaseCarousel() {
                   key={current.src}
                   src={current.src}
                   alt={current.alt}
+                  width={current.width}
+                  height={current.height}
                   className="platform-shot h-auto w-full select-none"
                   decoding="async"
                   draggable={false}
@@ -173,7 +185,9 @@ export default function PlatformShowcaseCarousel() {
               key={`lb-${current.src}`}
               src={current.src}
               alt={current.alt}
-              className="platform-shot-lightbox h-auto max-h-[calc(100dvh-6rem)] w-full max-w-[min(96vw,1400px)] select-none object-contain"
+              width={current.width}
+              height={current.height}
+              className="platform-shot-lightbox h-auto max-h-[calc(100dvh-6rem)] w-auto max-w-[min(96vw,2556px)] select-none object-contain"
               decoding="sync"
               draggable={false}
             />
