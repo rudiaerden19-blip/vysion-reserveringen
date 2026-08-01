@@ -16,32 +16,29 @@ export default function WhySection() {
         className="pointer-events-none absolute -right-24 top-1/4 h-72 w-72 rounded-full bg-accent/[0.08] blur-3xl"
         aria-hidden
       />
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl sm:text-5xl md:text-[3.25rem] font-bold text-gray-900 tracking-tight mb-14 sm:mb-16">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl sm:text-5xl md:text-[3.25rem] font-bold text-gray-900 tracking-tight text-center mb-14 sm:mb-16">
           Waarom TableVysion?
         </h2>
-        <ul className="mx-auto space-y-8 sm:space-y-10">
+
+        <ul className="mx-auto w-full max-w-3xl space-y-7 sm:space-y-9">
           {points.map((p) => (
-            <li
-              key={p}
-              className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5"
-            >
+            <li key={p} className="flex items-start gap-4 sm:gap-5">
               <span
-                className="inline-flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full bg-accent/10 text-2xl sm:text-3xl font-bold text-accent"
+                className="mt-0.5 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent/12 text-2xl font-bold text-accent"
                 aria-hidden
               >
                 ✓
               </span>
-              <span className="text-lg sm:text-xl md:text-2xl text-gray-800 leading-snug max-w-2xl">
-                {p}
-              </span>
+              <p className="pt-1.5 text-xl sm:text-2xl text-gray-800 leading-snug text-left">{p}</p>
             </li>
           ))}
         </ul>
-        <div className="mt-14 sm:mt-16">
+
+        <div className="mt-14 sm:mt-16 text-center">
           <a
             href={REGISTER_URL}
-            className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-accent px-10 sm:px-12 py-4 text-lg sm:text-xl font-semibold text-white shadow-home-btn hover:bg-accent/90 transition-colors"
+            className="inline-flex min-h-[56px] items-center justify-center rounded-full bg-accent px-12 py-4 text-lg sm:text-xl font-semibold text-white shadow-home-btn hover:bg-accent/90 transition-colors"
           >
             Start gratis
           </a>
