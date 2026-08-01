@@ -11,6 +11,10 @@ const FAQ = [
     q: 'Werkt dit voor meerdere zaken?',
     a: 'Ja, overal waar internet aanwezig is.',
   },
+  {
+    q: 'Moet ik installatiekosten betalen?',
+    a: 'Neen, wij zorgen dat alles werkt voor jou gratis. Jij logt in en klaar.',
+  },
 ] as const
 
 export default function FaqSection() {
