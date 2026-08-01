@@ -1,5 +1,6 @@
 import SiteNav from '@/components/SiteNav'
 import LandingHero from '@/components/LandingHero'
+import AboutSection from '@/components/AboutSection'
 import FeaturesSection from '@/components/FeaturesSection'
 import MissionSection from '@/components/MissionSection'
 import WhySection from '@/components/WhySection'
@@ -14,6 +15,7 @@ export default function Home() {
       <SiteNav />
       <main>
         <LandingHero />
+        <AboutSection />
         <FeaturesSection />
         <MissionSection />
         <PlatformShowcaseSection />

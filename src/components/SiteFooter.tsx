@@ -66,9 +66,9 @@ export default function SiteFooter() {
             <p className="mb-2 font-semibold text-white">Bedrijf</p>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href={`${MAIN_PLATFORM_URL}/over-ons`} className={footerLinkClass}>
+                <Link href="/#over-ons" className={footerLinkClass}>
                   Over ons
-                </a>
+                </Link>
               </li>
               <li>
                 <a href={`${MAIN_PLATFORM_URL}/#contact`} className={footerLinkClass}>
