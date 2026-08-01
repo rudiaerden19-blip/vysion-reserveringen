@@ -1,7 +1,7 @@
 import { REGISTER_URL } from '@/lib/site'
 
 const points = [
-  'Geen losse tools — reserveringen horen bij je Vysion-omgeving.',
+  'Geen losse tools — alles in één omgeving, in één handomdraai.',
   'Later uitbreiden met online bestellen of kassa kan altijd.',
   'Multi-tenant platform: veilig voor elke zaak apart.',
 ]
