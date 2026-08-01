@@ -14,7 +14,7 @@ export default function AboutSection() {
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-gray-600 sm:text-xl">
             {SITE_NAME} is het reserveringsplatform van Vysion Group International — gebouwd voor restaurants,
-            cafés en zaalverhuur die overzicht willen zonder ingewikkelde contracten of verborgen kosten.
+            hotels en zaalverhuur die overzicht willen zonder ingewikkelde contracten of verborgen kosten.
           </p>
           <p className="mt-4 text-lg leading-relaxed text-gray-600">
             We werken vanuit Pelt (België) met korte lijnen: vragen stellen, feedback geven of hulp bij
