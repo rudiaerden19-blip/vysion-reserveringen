@@ -45,21 +45,21 @@ export default function FeaturesSection() {
           </p>
         </header>
 
-        <div className="features-split">
-          <div className="features-photo-wrap shadow-home-photo ring-1 ring-black/5">
+        <div className="features-layout-split grid w-full grid-cols-1 items-start gap-y-10 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-0 md:gap-x-12 lg:gap-x-16 xl:gap-x-20">
+          <div className="relative aspect-[4/3] min-w-0 w-full overflow-hidden rounded-3xl shadow-home-photo ring-1 ring-black/5">
             <Image
               src="/images/platform/reservaties-card.png"
               alt="TableVysion reserveringen"
               fill
               className="object-cover object-center"
-              sizes="(max-width: 767px) 100vw, 50vw"
+              sizes="(max-width: 639px) 100vw, 42vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-dark/25 via-transparent to-transparent" aria-hidden />
           </div>
 
-          <div className="features-card-grid">
+          <div className="features-cards-grid min-w-0 w-full">
             {features.map((f, index) => (
-              <article key={f.title} className="features-card">
+              <article key={f.title} className="features-card min-w-0">
                 <span className="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent">
                   {index + 1}
                 </span>
