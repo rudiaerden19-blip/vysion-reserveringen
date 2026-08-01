@@ -5,7 +5,7 @@ const FAQ = [
   },
   {
     q: 'Waar log ik in na registratie?',
-    a: 'Via Inloggen op vysion-kassa.com met het e-mailadres van je account.',
+    a: 'Via Inloggen op www.tablevysion.com met het e-mailadres van je account.',
   },
   {
     q: 'Werkt dit voor meerdere zaken?',
