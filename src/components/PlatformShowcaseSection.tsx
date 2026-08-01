@@ -1,3 +1,6 @@
+'use client'
+
+import { useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 
 const screenshots = [
@@ -28,16 +31,71 @@ const screenshots = [
   },
 ] as const
 
+function NavArrow({
+  direction,
+  onClick,
+  label,
+}: {
+  direction: 'prev' | 'next'
+  onClick: () => void
+  label: string
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={label}
+      className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-800 shadow-home-float transition hover:border-accent/40 hover:bg-accent/5 hover:text-accent sm:h-14 sm:w-14"
+    >
+      <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+        {direction === 'prev' ? (
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        ) : (
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        )}
+      </svg>
+    </button>
+  )
+}
+
 export default function PlatformShowcaseSection() {
+  const [index, setIndex] = useState(0)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const total = screenshots.length
+  const current = screenshots[index]
+
+  const goPrev = useCallback(() => {
+    setIndex((i) => (i - 1 + total) % total)
+  }, [total])
+
+  const goNext = useCallback(() => {
+    setIndex((i) => (i + 1) % total)
+  }, [total])
+
+  useEffect(() => {
+    if (!lightboxOpen) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLightboxOpen(false)
+      if (e.key === 'ArrowLeft') goPrev()
+      if (e.key === 'ArrowRight') goNext()
+    }
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [lightboxOpen, goPrev, goNext])
+
   return (
     <section
       id="platform"
-      className="scroll-mt-24 border-y border-gray-200/80 bg-gradient-to-b from-white via-[#f3f3f3] to-[#e8e8e8] py-16 sm:py-20 lg:py-24"
+      className="scroll-mt-24 border-y border-gray-200/80 bg-gradient-to-b from-white via-[#f3f3f3] to-[#e8e8e8] py-20 sm:py-24 lg:py-28"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
+        <div className="mx-auto mb-12 max-w-2xl text-center sm:mb-14">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-accent">Platform</p>
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
             Zo werkt je reserveringsadmin
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-gray-600 sm:text-xl">
@@ -45,27 +103,89 @@ export default function PlatformShowcaseSection() {
           </p>
         </div>
 
-        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          {screenshots.map((shot) => (
-            <li key={shot.src} className="group min-w-0">
-              <figure className="overflow-hidden rounded-2xl border border-gray-200/90 bg-white shadow-home-float ring-1 ring-black/5 transition-shadow group-hover:shadow-home-card">
-                <div className="relative aspect-[16/10] w-full bg-gray-100">
+        <div className="mx-auto flex max-w-6xl items-center gap-3 sm:gap-5">
+          <NavArrow direction="prev" onClick={goPrev} label="Vorige afbeelding" />
+
+          <figure className="min-w-0 flex-1">
+            <button
+              type="button"
+              onClick={() => setLightboxOpen(true)}
+              className="group block w-full cursor-zoom-in text-left"
+              aria-label={`${current.label} vergroten`}
+            >
+              <div className="overflow-hidden rounded-2xl border border-gray-200/90 bg-white shadow-home-card ring-1 ring-black/5 transition group-hover:ring-accent/30">
+                <div className="relative aspect-[16/9] w-full bg-gray-100 sm:aspect-[16/10] lg:min-h-[420px] lg:aspect-auto lg:h-[min(52vh,520px)]">
                   <Image
-                    src={shot.src}
-                    alt={shot.alt}
+                    key={current.src}
+                    src={current.src}
+                    alt={current.alt}
                     fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-contain object-center p-1 sm:p-2"
+                    sizes="(max-width: 1024px) 90vw, 960px"
+                    priority={index === 0}
                   />
                 </div>
-                <figcaption className="border-t border-gray-100 px-4 py-3 text-center text-sm font-semibold text-gray-800 sm:text-base">
-                  {shot.label}
+                <figcaption className="flex items-center justify-between gap-3 border-t border-gray-100 px-5 py-4 sm:px-6 sm:py-5">
+                  <span className="text-base font-semibold text-gray-900 sm:text-lg">{current.label}</span>
+                  <span className="text-sm text-gray-500">
+                    {index + 1} / {total} · Klik voor volledig scherm
+                  </span>
                 </figcaption>
-              </figure>
-            </li>
-          ))}
-        </ul>
+              </div>
+            </button>
+          </figure>
+
+          <NavArrow direction="next" onClick={goNext} label="Volgende afbeelding" />
+        </div>
       </div>
+
+      {lightboxOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex flex-col bg-black/92 p-4 sm:p-6"
+          role="dialog"
+          aria-modal="true"
+          aria-label={current.label}
+          onClick={() => setLightboxOpen(false)}
+        >
+          <div
+            className="mb-3 flex shrink-0 items-center justify-between gap-4 text-white"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <p className="truncate text-base font-semibold sm:text-lg">
+              {current.label}{' '}
+              <span className="font-normal text-white/60">
+                ({index + 1}/{total})
+              </span>
+            </p>
+            <button
+              type="button"
+              onClick={() => setLightboxOpen(false)}
+              className="inline-flex h-11 min-w-11 items-center justify-center rounded-full bg-white/10 px-4 text-sm font-semibold transition hover:bg-white/20"
+            >
+              Sluiten
+            </button>
+          </div>
+
+          <div
+            className="relative flex min-h-0 flex-1 items-center justify-center gap-2 sm:gap-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <NavArrow direction="prev" onClick={goPrev} label="Vorige afbeelding" />
+            <div className="relative h-full max-h-[calc(100vh-8rem)] w-full max-w-6xl flex-1">
+              <Image
+                key={`lb-${current.src}`}
+                src={current.src}
+                alt={current.alt}
+                fill
+                className="object-contain object-center"
+                sizes="100vw"
+                priority
+              />
+            </div>
+            <NavArrow direction="next" onClick={goNext} label="Volgende afbeelding" />
+          </div>
+        </div>
+      )}
     </section>
   )
 }
