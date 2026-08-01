@@ -15,6 +15,10 @@ const FAQ = [
     q: 'Moet ik installatiekosten betalen?',
     a: 'Neen, wij zorgen dat alles werkt voor jou gratis. Jij logt in en klaar.',
   },
+  {
+    q: 'Kan ik met voorschotten werken?',
+    a: 'Ja. Per reservering kan je een voorschot vragen aan de klant. Je kan dit ook automatisch laten lopen; stel het in via je instellingen.',
+  },
 ] as const
 
 export default function FaqSection() {
