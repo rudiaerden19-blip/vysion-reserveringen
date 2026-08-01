@@ -82,7 +82,7 @@ export default function PlatformShowcaseCarousel() {
   const [index, setIndex] = useState(0)
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [dpr, setDpr] = useState(1)
-  const [naturalW, setNaturalW] = useState(platformScreenshots[0].width)
+  const [naturalW, setNaturalW] = useState<number>(platformScreenshots[0].width)
   const [fullSharp, setFullSharp] = useState(false)
   const total = platformScreenshots.length
   const current = platformScreenshots[index]
