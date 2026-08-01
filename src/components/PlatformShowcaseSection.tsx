@@ -96,7 +96,7 @@ export default function PlatformShowcaseSection() {
         <div className="mx-auto mb-12 max-w-2xl text-center sm:mb-14">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-accent">Platform</p>
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-            Zo werkt je reserveringsadmin
+            Zo werkt je reserveringsplatform
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-gray-600 sm:text-xl">
             Plattegrond, tafels, rapporten en gasten — alles overzichtelijk in één omgeving.
