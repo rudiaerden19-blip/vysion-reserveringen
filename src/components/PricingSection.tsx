@@ -16,6 +16,10 @@ const planFeatures = [
   'Website van je zaak (profiel & content)',
   'Meertalig voor gasten',
   'E-mail & telefoon support',
+  'QR-code menu',
+  'E-mailcampagnes',
+  'No-show veiligheid',
+  'VIP-klanten',
 ]
 
 function FeatureCheck({ label }: { label: string }) {
