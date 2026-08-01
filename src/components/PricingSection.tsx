@@ -51,10 +51,10 @@ export default function PricingSection() {
         <div className="mb-12 text-center sm:mb-14">
           <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl">Simpele, transparante prijzen</h2>
           <p className="text-lg text-gray-600 sm:text-xl">Alles voor tafelreserveringen. Geen verrassingen.</p>
-          <p className="mt-3 text-sm font-medium text-gray-500 sm:text-base">
+          <p className="mt-3 text-base font-medium text-gray-500 sm:text-lg">
             14 dagen gratis proberen · Geen creditcard nodig · Maandelijks opzegbaar
           </p>
-          <p className="mt-2 text-xs font-medium text-gray-600 sm:text-sm">Alle prijzen excl. BTW.</p>
+          <p className="mt-2 text-sm font-medium text-gray-600 sm:text-base">Alle prijzen excl. BTW.</p>
         </div>
 
         <div className="mb-12 flex flex-col items-center">

@@ -30,7 +30,7 @@ export default function WhySection() {
               >
                 ✓
               </span>
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-left">{p}</p>
+              <p className="text-left text-lg leading-relaxed text-gray-600 sm:text-xl">{p}</p>
             </li>
           ))}
         </ul>
