@@ -21,8 +21,8 @@ export default function AboutSection() {
             gemaakt: sneller, professioneler en goedkoper.
           </p>
           <p className="mt-4 text-lg leading-relaxed text-gray-600">
-            Opstarten, training of een vraag tussendoor? Ons team in België helpt je persoonlijk verder — snel
-            en in je eigen taal.
+            Opstarten, training of een vraag tussendoor? Ons team helpt je persoonlijk verder — snel en in je
+            eigen taal.
           </p>
         </div>
       </div>
