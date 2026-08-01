@@ -75,7 +75,16 @@ function maxSharpCssWidth(naturalWidth: number, dpr: number, viewportPaddingPx: 
   const d = dpr > 0 ? dpr : 1
   const cap = Math.floor(naturalWidth / d)
   const viewport = typeof window !== 'undefined' ? window.innerWidth - viewportPaddingPx : cap
-  return Math.max(280, Math.min(cap, viewport))
+  return Math.max(240, Math.min(cap, viewport))
+}
+
+/** Hard cap: kleiner tonen = minder wazig bij lage bronresolutie. */
+const CAROUSEL_MAX_CSS = 480
+const LIGHTBOX_OPEN_MAX_CSS = 560
+const LIGHTBOX_ZOOM_MAX_CSS = 820
+
+function displayWidth(sharpMax: number, ceiling: number) {
+  return Math.min(sharpMax, ceiling)
 }
 
 export default function PlatformShowcaseCarousel() {
@@ -123,9 +132,10 @@ export default function PlatformShowcaseCarousel() {
   }, [lightboxOpen, goPrev, goNext])
 
   const rawSrc = current.src.split('?')[0]
-  const sharpMax = maxSharpCssWidth(naturalW, dpr, 120)
-  const previewMax = maxSharpCssWidth(naturalW, dpr, 160)
-  const fitMax = maxSharpCssWidth(naturalW, dpr, 96)
+  const sharpCap = maxSharpCssWidth(naturalW, dpr, 120)
+  const previewPx = displayWidth(maxSharpCssWidth(naturalW, dpr, 200), CAROUSEL_MAX_CSS)
+  const lightboxOpenPx = displayWidth(sharpCap, LIGHTBOX_OPEN_MAX_CSS)
+  const lightboxZoomPx = displayWidth(sharpCap, LIGHTBOX_ZOOM_MAX_CSS)
 
   const onImgLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const img = e.currentTarget
@@ -145,7 +155,7 @@ export default function PlatformShowcaseCarousel() {
             aria-label={`${current.label} vergroten`}
           >
             <div className="overflow-hidden rounded-2xl border-2 border-gray-300 bg-white shadow-home-card">
-              <div className="flex min-h-[280px] items-center justify-center bg-gray-50 p-3 sm:min-h-[320px]">
+              <div className="flex min-h-[200px] items-center justify-center bg-gray-50 p-4 sm:min-h-[220px]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   key={current.src}
@@ -155,7 +165,7 @@ export default function PlatformShowcaseCarousel() {
                   height={current.height}
                   onLoad={onImgLoad}
                   className="h-auto select-none"
-                  style={{ width: `${previewMax}px`, maxWidth: '100%' }}
+                  style={{ width: `${previewPx}px`, maxWidth: '100%' }}
                   decoding="async"
                   draggable={false}
                 />
@@ -197,7 +207,7 @@ export default function PlatformShowcaseCarousel() {
                 onClick={() => setFullSharp((z) => !z)}
                 className="inline-flex h-10 items-center justify-center rounded-full bg-white/10 px-4 text-sm font-semibold transition hover:bg-white/20"
               >
-                {fullSharp ? 'Passend' : '100% scherp'}
+                {fullSharp ? 'Kleiner' : 'Groter'}
               </button>
               <a
                 href={rawSrc}
@@ -229,7 +239,7 @@ export default function PlatformShowcaseCarousel() {
                 onLoad={onImgLoad}
                 className="h-auto select-none"
                 style={{
-                  width: `${fullSharp ? sharpMax : fitMax}px`,
+                  width: `${fullSharp ? lightboxZoomPx : lightboxOpenPx}px`,
                   maxWidth: 'none',
                 }}
                 decoding="sync"
