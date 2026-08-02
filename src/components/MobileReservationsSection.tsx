@@ -20,6 +20,12 @@ export default function MobileReservationsSection() {
           <h2 className="text-3xl font-bold leading-tight tracking-tight text-accent sm:text-4xl lg:text-[2.35rem]">
             Neem je reserveringsplatform mee waar je maar wilt.
           </h2>
+          <p className="mt-5 text-lg leading-relaxed text-gray-600 sm:text-xl">
+            Wil je je platform gebruiken aan de ingang van de zaak om klanten te verwelkomen, op het terras
+            tijdens de service, of vanuit thuis reserveringen bijhouden? Dat kan zeker. Overal waar internet
+            is, kun je op je eigen platform inloggen en reserveringen aannemen, aanpassen, verwijderen en
+            meer. Jouw platform is altijd binnen bereik — en uit te breiden met 10 draagbare handhelds.
+          </p>
         </div>
       </div>
     </section>
