@@ -6,6 +6,7 @@ import MissionSection from '@/components/MissionSection'
 import WhySection from '@/components/WhySection'
 import PlatformShowcaseSection from '@/components/PlatformShowcaseSection'
 import PricingSection from '@/components/PricingSection'
+import MobileReservationsSection from '@/components/MobileReservationsSection'
 import FaqSection from '@/components/FaqSection'
 import SiteFooter from '@/components/SiteFooter'
 
@@ -21,6 +22,7 @@ export default function Home() {
         <PlatformShowcaseSection />
         <WhySection />
         <PricingSection />
+        <MobileReservationsSection />
         <FaqSection />
       </main>
       <SiteFooter />
