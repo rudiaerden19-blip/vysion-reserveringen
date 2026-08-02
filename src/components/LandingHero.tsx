@@ -20,7 +20,7 @@ export default function LandingHero() {
       </div>
 
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 sm:px-6 text-center py-8">
-        <h1 className="max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-[2.85rem] font-bold leading-tight tracking-tight text-white">
+        <h1 className="max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-[2.85rem] font-bold leading-tight tracking-tight text-accent">
           Meer reserveringen. Minder gedoe.
         </h1>
         <p className="mt-4 sm:mt-5 text-lg sm:text-xl text-white/90 font-medium max-w-2xl leading-snug">
