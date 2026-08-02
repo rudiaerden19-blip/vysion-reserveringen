@@ -24,8 +24,8 @@ const features = [
     body: 'Zie in één oogopslag welke tafels bezet zijn, wijs reserveringen toe en werk sneller tijdens de service.',
   },
   {
-    title: 'Publieke reserveringspagina',
-    body: 'Gasten boeken via jouw eigen link of website — professioneel, meertalig en klaar om te delen.',
+    title: 'Je eigen website',
+    body: 'Je krijgt bij ons een eigen gratis website die je geheel zelf kunt aanpassen — kleuren, layout, alles naar jouw smaak.',
   },
 ] as const
 
