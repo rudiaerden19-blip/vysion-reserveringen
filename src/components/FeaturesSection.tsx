@@ -46,7 +46,7 @@ export default function FeaturesSection() {
         </header>
 
         <div className="features-layout-split grid w-full grid-cols-1 items-start gap-y-10 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-0 md:gap-x-12 lg:gap-x-16 xl:gap-x-20">
-          <div className="relative aspect-[4/3] min-w-0 w-full overflow-hidden rounded-3xl shadow-home-photo ring-1 ring-black/5">
+          <div className="features-photo relative aspect-[4/3] min-h-[17rem] min-w-0 w-full overflow-hidden rounded-3xl shadow-home-photo ring-1 ring-black/5 sm:aspect-auto sm:min-h-0">
             <Image
               src="/images/platform/reservaties-card.png"
               alt="Medewerker bedient de kassa in horeca"
