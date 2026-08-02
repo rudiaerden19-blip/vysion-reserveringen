@@ -19,6 +19,14 @@ const features = [
     title: 'Volledige transparantie',
     body: 'Realtime zicht op bezetting, open tijdsloten en reserveringsstatus — jij en je team weten altijd waar je aan toe bent.',
   },
+  {
+    title: 'Live tafelplattegrond',
+    body: 'Zie in één oogopslag welke tafels bezet zijn, wijs reserveringen toe en werk sneller tijdens de service.',
+  },
+  {
+    title: 'Publieke reserveringspagina',
+    body: 'Gasten boeken via jouw eigen link of website — professioneel, meertalig en klaar om te delen.',
+  },
 ] as const
 
 export default function FeaturesSection() {
