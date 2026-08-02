@@ -49,7 +49,7 @@ export default function FeaturesSection() {
           <div className="relative aspect-[4/3] min-w-0 w-full overflow-hidden rounded-3xl shadow-home-photo ring-1 ring-black/5">
             <Image
               src="/images/platform/reservaties-card.png"
-              alt="TableVysion reserveringen"
+              alt="Medewerker bedient de kassa in horeca"
               fill
               className="object-cover object-center"
               sizes="(max-width: 639px) 100vw, 42vw"
