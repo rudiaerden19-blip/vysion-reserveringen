@@ -57,7 +57,7 @@ export default function FeaturesSection() {
           <div className="features-photo relative aspect-[4/3] min-h-[17rem] min-w-0 w-full overflow-hidden rounded-3xl shadow-home-photo ring-1 ring-black/5 sm:aspect-auto sm:min-h-0">
             <Image
               src="/images/platform/reservaties-card.png"
-              alt="Medewerker bedient de kassa in horeca"
+              alt="Ondernemer in horeca met laptop en telefoon"
               fill
               className="object-cover object-center"
               sizes="(max-width: 639px) 100vw, 42vw"
