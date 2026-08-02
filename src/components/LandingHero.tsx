@@ -24,7 +24,7 @@ export default function LandingHero() {
           Meer reserveringen. Minder gedoe.
         </h1>
         <p className="mt-4 sm:mt-5 text-lg sm:text-xl text-white/90 font-medium max-w-2xl leading-snug">
-          Gasten reserveren 24/7 online. Jij houdt altijd het overzicht.
+          Gasten reserveren. Jij houdt het overzicht.
         </p>
         <p className="mt-3 text-base sm:text-lg text-white/85 max-w-2xl leading-relaxed">
           Bevestigingen, tijdsloten en overzicht in één admin.
