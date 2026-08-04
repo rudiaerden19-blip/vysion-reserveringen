@@ -12,6 +12,10 @@ const FAQ = [
     a: 'Via Inloggen op www.tablevysion.com met het e-mailadres van je account.',
   },
   {
+    q: 'Kan ik mijn platform ook zelf laten updaten, bv. een module verbouwen naar mijn smaak?',
+    a: 'Ja hoor. Bel ons met je vraag — “ik wil dit er nog bij” — wij bouwen het ’s nachts voor jou. Jij start ’s morgens opnieuw op en je module staat erbij. Gratis.',
+  },
+  {
     q: 'Werkt dit voor meerdere zaken?',
     a: 'Ja, overal waar internet aanwezig is.',
   },
