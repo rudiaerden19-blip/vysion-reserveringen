@@ -125,9 +125,10 @@ export default function ComparisonTableSection() {
           </table>
         </div>
 
-        <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-gray-500 sm:text-sm">
-          Indicatieve vergelijking op basis van publieke tarieven en functielijsten. Exacte pakketten kunnen per
-          aanbieder verschillen.
+        <p className="mx-auto mt-8 max-w-3xl text-center text-base leading-relaxed text-gray-700 sm:mt-10 sm:text-lg">
+          Bij de meeste systemen word je gelokt met een basisprijs: wil je daarna modules erbij die je nodig
+          hebt, betaal je soms tot honderden euro&apos;s extra. Bij TableVysion geloven we niet in addertjes
+          onder het gras. Eén vaste prijs, écht all-in.
         </p>
       </div>
     </section>
