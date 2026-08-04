@@ -44,6 +44,9 @@ export default function LandingHero() {
             Bekijk functies
           </Link>
         </div>
+        <p className="mt-6 text-sm sm:text-base font-medium text-accent max-w-xl leading-snug">
+          (Uitgeroepen tot meest professioneel reserveringssysteem van 2026)
+        </p>
       </div>
     </section>
   )
