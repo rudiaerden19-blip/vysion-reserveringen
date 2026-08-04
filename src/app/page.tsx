@@ -3,6 +3,7 @@ import LandingHero from '@/components/LandingHero'
 import AboutSection from '@/components/AboutSection'
 import FeaturesSection from '@/components/FeaturesSection'
 import MissionSection from '@/components/MissionSection'
+import ComparisonTableSection from '@/components/ComparisonTableSection'
 import WhySection from '@/components/WhySection'
 import PlatformShowcaseSection from '@/components/PlatformShowcaseSection'
 import PricingSection from '@/components/PricingSection'
@@ -19,6 +20,7 @@ export default function Home() {
         <AboutSection />
         <FeaturesSection />
         <MissionSection />
+        <ComparisonTableSection />
         <PlatformShowcaseSection />
         <WhySection />
         <PricingSection />
