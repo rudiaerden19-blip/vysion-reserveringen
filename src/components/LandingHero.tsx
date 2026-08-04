@@ -44,8 +44,8 @@ export default function LandingHero() {
             Bekijk functies
           </Link>
         </div>
-        <p className="mt-6 text-sm sm:text-base font-medium text-accent max-w-xl leading-snug">
-          (Uitgeroepen tot meest professioneel reserveringssysteem van 2026)
+        <p className="mt-7 sm:mt-8 text-base sm:text-lg md:text-xl font-semibold text-accent max-w-2xl leading-snug drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)]">
+          (Uitgeroepen tot meest professioneel tafel reserverings systeem van 2026)
         </p>
       </div>
     </section>
