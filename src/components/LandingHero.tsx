@@ -10,7 +10,7 @@ export default function LandingHero() {
       <div className="absolute inset-x-0 top-[-5rem] bottom-0">
         <Image
           src="/images/hero-header.png"
-          alt="Gedekte restauranttafel met reserveringskaartje"
+          alt="Terras van Apollon Kitchen & Bar met houten tafels en hanglampen"
           fill
           priority
           className="object-cover object-center"
