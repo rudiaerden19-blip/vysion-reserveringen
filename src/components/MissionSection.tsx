@@ -20,7 +20,7 @@ const cards = [
   },
   {
     title: 'Persoonlijk',
-    description: 'Geen callcenters. Directe lijnen met ons team. We kennen elke klant bij naam.',
+    description: 'Geen callcenters. Directe lijnen met ons team. We kennen iedere klant bij naam.',
     icon: (
       <path
         strokeLinecap="round"
