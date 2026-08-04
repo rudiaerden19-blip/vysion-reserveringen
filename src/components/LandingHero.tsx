@@ -26,9 +26,6 @@ export default function LandingHero() {
         <p className="mt-4 sm:mt-5 text-lg sm:text-xl text-white/90 font-medium max-w-2xl leading-snug">
           Gasten reserveren. Jij houdt het overzicht.
         </p>
-        <p className="mt-3 text-base sm:text-lg text-white/85 max-w-2xl leading-relaxed">
-          Bevestigingen, tijdsloten en overzicht in één admin.
-        </p>
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
