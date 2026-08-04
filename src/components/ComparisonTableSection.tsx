@@ -87,7 +87,7 @@ export default function ComparisonTableSection() {
                 <th scope="col" className="px-4 py-4 font-semibold text-gray-700 sm:px-6 sm:py-5">
                   <span className="block">Grote spelers</span>
                   <span className="mt-1 block text-xs font-normal text-gray-500 sm:text-sm">
-                    Zenchef / Formitable
+                    Zenchef, Restomanager, The Fork
                   </span>
                 </th>
                 <th
