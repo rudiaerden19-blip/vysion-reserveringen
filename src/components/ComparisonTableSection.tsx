@@ -10,7 +10,7 @@ const rows: ComparisonRow[] = [
     feature: 'Vaste maandprijs',
     budget: 'Laag instaptarief',
     enterprise: 'Hoog (€100 – €170+ / maand)',
-    tablevysion: '€39/maand',
+    tablevysion: '€49/maand',
   },
   {
     feature: 'Aantal reserveringen',
