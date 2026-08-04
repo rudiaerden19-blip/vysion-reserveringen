@@ -27,7 +27,7 @@ export default function AboutSection() {
             eigen taal.
           </p>
           <p className="mt-4 text-lg leading-relaxed text-gray-600">
-            Wij werken niet met chatbots enzovoort: heb je een vraag of wat ook, onze techniekers staan je
+            Wij werken niet met chatbots enzovoort: heb je een vraag of wat dan ook, onze techniekers staan je
             persoonlijk ter woord.
           </p>
         </div>
