@@ -16,6 +16,10 @@ const FAQ = [
     a: 'Ja hoor. Bel ons met je vraag — “ik wil dit er nog bij” — wij bouwen het ’s nachts voor jou. Jij start ’s morgens opnieuw op en je module staat erbij. Gratis.',
   },
   {
+    q: 'Heb ik al een eigen website — kan ik daar een knop naar jullie reserveringspagina zetten?',
+    a: 'Ja. Zet op je site een knop of link naar je persoonlijke reserverings-URL (vind je in je admin onder reserveringsinstellingen, met “Kopieer link”). Gasten reserveren op onze pagina; je hoeft je bestaande website niet te vervangen. Geen ingebouwde iframe nodig — een gewone link volstaat op WordPress, Wix of elke andere site.',
+  },
+  {
     q: 'Werkt dit voor meerdere zaken?',
     a: 'Ja, overal waar internet aanwezig is.',
   },
