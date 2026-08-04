@@ -4,6 +4,7 @@ const points = [
   'Geen losse tools — alles in één omgeving, in één handomdraai.',
   'Het meest professionele reserveringsplatform op de markt.',
   'Sneller en goedkoper dan de meeste andere platformen.',
+  'TableVysion wordt in eigen beheer gebouwd door ons team in België: heb je een bug of een vraag, binnen 5 minuten word je geholpen.',
 ]
 
 export default function WhySection() {
