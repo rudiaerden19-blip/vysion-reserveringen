@@ -1,3 +1,5 @@
+import { TABLEVYSION_MONTHLY } from '@/lib/pricing'
+
 type ComparisonRow = {
   feature: string
   budget: string
@@ -10,7 +12,7 @@ const rows: ComparisonRow[] = [
     feature: 'Vaste maandprijs',
     budget: 'Laag instaptarief',
     enterprise: 'Hoog (€100 – €170+ / maand)',
-    tablevysion: '€49/maand',
+    tablevysion: `€${TABLEVYSION_MONTHLY}/maand`,
   },
   {
     feature: 'Aantal reserveringen',
