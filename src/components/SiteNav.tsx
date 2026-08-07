@@ -2,13 +2,18 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { LOGIN_PATH, REGISTER_URL, SITE_NAME } from '@/lib/site'
+import { LOGIN_PATH, MAIN_PLATFORM_URL, OFFICIAL_SITE_URL, ORDER_SITE_URL, REGISTER_URL, SITE_NAME } from '@/lib/site'
 
-const links = [
-  { href: '/', label: 'Home' },
+const productLinks = [
+  { href: OFFICIAL_SITE_URL, label: 'Reserveringen' },
+  { href: MAIN_PLATFORM_URL, label: 'Kassa' },
+  { href: ORDER_SITE_URL, label: 'Online bestelplatform' },
+] as const
+
+const localLinks = [
   { href: '/#prijzen', label: 'Prijzen' },
   { href: '/#faq', label: 'FAQ' },
-]
+] as const
 
 const navLinkClass =
   'inline-flex min-h-11 items-center rounded-lg px-3 py-2 text-gray-300 hover:text-white transition-colors'
@@ -25,7 +30,12 @@ export default function SiteNav() {
           </Link>
 
           <div className="hidden md:flex items-center gap-1">
-            {links.map((l) => (
+            {productLinks.map((l) => (
+              <a key={l.href} href={l.href} className={navLinkClass}>
+                {l.label}
+              </a>
+            ))}
+            {localLinks.map((l) => (
               <Link key={l.href} href={l.href} className={navLinkClass}>
                 {l.label}
               </Link>
@@ -62,7 +72,17 @@ export default function SiteNav() {
 
         {open && (
           <div className="md:hidden pb-4 space-y-1">
-            {links.map((l) => (
+            {productLinks.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className="block py-3 px-3 rounded-lg text-white font-medium hover:bg-white/10"
+                onClick={() => setOpen(false)}
+              >
+                {l.label}
+              </a>
+            ))}
+            {localLinks.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}

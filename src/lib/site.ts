@@ -4,6 +4,8 @@ export const OFFICIAL_SITE_URL = 'https://www.tablevysion.com'
 
 export const MAIN_PLATFORM_URL = 'https://www.vysion-kassa.com'
 
+export const ORDER_SITE_URL = 'https://www.vysionorder.com'
+
 export const PRODUCT_LINE = 'restaurant_reservaties' as const
 
 /** Intern pad op tablevysion.com; redirect naar platformlogin met productlijn. */
