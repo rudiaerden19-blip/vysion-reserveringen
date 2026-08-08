@@ -4,6 +4,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { REGISTER_URL } from '@/lib/site'
 
+/** Alleen bovenste hero — rest van site gebruikt `--accent` (platform blauw). */
+const HERO_ORANGE_TEXT = 'text-[#e85a3c]'
+const HERO_ORANGE_BTN =
+  'bg-[#e85a3c] hover:bg-[#e85a3c]/90'
+
 export default function LandingHero() {
   return (
     <section className="relative pt-20 min-h-[72svh] sm:min-h-[76svh] flex flex-col text-white overflow-hidden pb-8">
@@ -20,7 +25,7 @@ export default function LandingHero() {
       </div>
 
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 sm:px-6 text-center py-8">
-        <h1 className="max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-[2.85rem] font-bold leading-tight tracking-tight text-accent">
+        <h1 className={`max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-[2.85rem] font-bold leading-tight tracking-tight ${HERO_ORANGE_TEXT}`}>
           Meer reserveringen. Minder gedoe.
         </h1>
         <p className="mt-4 sm:mt-5 text-lg sm:text-xl text-white/90 font-medium max-w-2xl leading-snug">
@@ -30,7 +35,7 @@ export default function LandingHero() {
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
             href={REGISTER_URL}
-            className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-accent px-8 py-3 text-base font-semibold text-white shadow-home-btn hover:bg-accent/90 transition-colors"
+            className={`inline-flex min-h-[48px] items-center justify-center rounded-full px-8 py-3 text-base font-semibold text-white shadow-home-btn transition-colors ${HERO_ORANGE_BTN}`}
           >
             Start gratis proefperiode
           </Link>
